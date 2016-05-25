@@ -5,9 +5,9 @@
 
 		$get_banner = get_field('banner');
 		$banner = wp_get_attachment_image( $get_banner , 'mainbanner_lg');
-		if ($banner) { ?>
-			<img class="img-responsive" src="<?php echo $banner; ?>" alt="main banner">
-		<?php }
+		if ($banner) { 
+			echo $banner;
+		}
 	 ?>
 <div>
 </div>

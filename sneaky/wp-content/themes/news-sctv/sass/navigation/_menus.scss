@@ -4,7 +4,7 @@
     // float: left;
     // width: 100%;
     ul {
-        display: none;
+        // display: none;
         list-style: none;
         margin: 0;
         padding-left: 0;
@@ -41,10 +41,11 @@
     li {
         // float: left;
         position: relative;
-        padding: 15px;
+        
         border-bottom: 1px solid $color__secondary__dark;
         a {
             color: #fff;
+            padding: 15px;
         }
         &:hover > a,
         &.focus > a {
@@ -143,8 +144,9 @@
 
 /* NAVIGATION */
 
-#page {
-    &.active {
+body {
+    &.menu-active {
+    	overflow: hidden;
         #site-menu-bar {
             background-color: $color__highlight;
             .fa-times {

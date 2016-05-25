@@ -13556,8 +13556,7 @@ return jQuery;
 	var menuNav = $('#site-navigation');
 
 	menuBar.click(function(){
-		$(this).parents('#page').toggleClass('active');
-		$('body').css('overflow', 'hidden');
+		$('body').toggleClass('menu-active');
 	});
 
 

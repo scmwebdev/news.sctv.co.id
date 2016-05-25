@@ -34,7 +34,7 @@
 				</a>
 			</div>
 			<div class="box" id="site-menu-logo">
-				<a href=""><img class="img-responsive" src="http://www.sctv.co.id/assets/img/logo_small.png" alt=""></a>
+				<a href="http://sctv.co.id"><img class="img-responsive" src="http://www.sctv.co.id/assets/img/logo_small.png" alt=""></a>
 			</div>
 		</div><!-- .site-branding -->
 
@@ -43,7 +43,6 @@
 	<div id="content" class="site-content">
 
 			<nav id="site-navigation" class="main-navigation" role="navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'news-sctv' ); ?></button>
 			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
 		</nav><!-- #site-navigation -->
-		
+

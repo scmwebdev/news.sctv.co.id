@@ -30,8 +30,7 @@ gulp.task('browserSync', function() {
 
     browserSync.init(files, {
         proxy: "http://localhost/news.sctv.co.id/",
-        notify: 'false',
-        baseDir: path
+        notify: 'false'
     });
 });
 
@@ -56,14 +55,20 @@ gulp.task('js', function() {
             './node_modules/jquery/dist/jquery.js',
             './node_modules/fastclick/lib/*.js',
             './node_modules/slick-carousel/slick/slick.js',
-            path + '/js/*.js',
+            path + '/js/news.sctv.js',
         ])
+        .pipe(concat('news-sctv.js'))
+        .pipe(gulp.dest(path))
         .pipe(uglify())
-        .pipe(concat('main.js'))
-        .pipe(gulp.dest('./'))
+        .pipe(concat('news-sctv.min.js'))
+        .pipe(gulp.dest(path))
         .pipe(reload({ stream: true }));
 });
 
+gulp.task('fonts', function() {
+    return gulp.src(['node_modules/font-awesome/fonts/**/*']) 
+    .pipe(gulp.dest('sneaky/wp-content/themes/fonts/'))
+});
 gulp.task('default', ['sass', 'js', 'browserSync'], function() {
     gulp.watch('*.scss', {cwd: path + '/sass'}, ['sass']);
     gulp.watch('**/*.scss', {cwd: path + '/sass'}, ['sass']);

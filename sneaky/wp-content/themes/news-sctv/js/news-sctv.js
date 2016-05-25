@@ -6,7 +6,8 @@
 	var menuNav = $('#site-navigation');
 
 	menuBar.click(function(){
-		$(this).parents('#masthead').toggleClass('active');
+		$(this).parents('#page').toggleClass('active');
+		$('body').css('overflow', 'hidden');
 	});
 
 

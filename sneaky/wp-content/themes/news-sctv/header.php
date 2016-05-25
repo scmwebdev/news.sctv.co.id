@@ -25,9 +25,16 @@
 	<a class="skip-link screen-reader-text" href="#main"><?php esc_html_e( 'Skip to content', 'news-sctv' ); ?></a>
 
 	<header id="masthead" class="site-header" role="banner">
-		<div class="site-menu">
-			<div class="site-menu-bar">
-				<i class="fa fa-bars"></i>
+		<div class="site-menu clearfix">
+			<div class="box" id="site-menu-bar">
+				<a>
+					<i class="fa fa-bars fa-2x" aria-hidden="true"></i>
+					<i class="fa fa-times fa-2x" aria-hidden="true"></i>
+
+				</a>
+			</div>
+			<div class="box" id="site-menu-logo">
+				<a href=""><img class="img-responsive" src="http://www.sctv.co.id/assets/img/logo_small.png" alt=""></a>
 			</div>
 		</div><!-- .site-branding -->
 

@@ -72,5 +72,5 @@ gulp.task('fonts', function() {
 gulp.task('default', ['sass', 'js', 'browserSync'], function() {
     gulp.watch('*.scss', {cwd: path + '/sass'}, ['sass']);
     gulp.watch('**/*.scss', {cwd: path + '/sass'}, ['sass']);
-    gulp.watch('*.js', {cwd: path + 'js'}, ['js']);
+    gulp.watch('*.js', {cwd: path + '/js'}, ['js']);
 });

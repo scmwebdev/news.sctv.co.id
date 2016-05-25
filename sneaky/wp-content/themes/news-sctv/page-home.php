@@ -1,6 +1,13 @@
 <?php get_header(); ?>
 
 <div class="segment" id="mainbanner">
-	this is frontpage
+	<?php 
+
+		$get_banner = get_field('banner');
+		$banner = wp_get_attachment_image( $get_banner , 'mainbanner_lg');
+		if ($banner) { ?>
+			<img class="img-responsive" src="<?php echo $banner; ?>" alt="main banner">
+		<?php }
+	 ?>
 </div>
 <?php get_footer(); ?>

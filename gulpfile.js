@@ -26,11 +26,12 @@ gulp.task('browserSync', function() {
         './sass/*.scss',
         './sass/**/*.scss',
         './template-parts/*.php',
-    ], { base: path};
+    ];
 
     browserSync.init(files, {
         proxy: "http://localhost/news.sctv.co.id/",
-        notify: 'false'
+        notify: 'false',
+        baseDir: path
     });
 });
 
@@ -45,8 +46,8 @@ gulp.task('sass', function() {
         .pipe(sourcemaps.init())
         .pipe(sass({ outputStyle: 'compressed' }))
         .pipe(autoprefixer())
-        .pipe(sourcemaps.write('./'))
-        .pipe(gulp.dest('./')) //output the file at root (app/)
+        .pipe(sourcemaps.write(path))
+        .pipe(gulp.dest(path)) 
         .pipe(reload({ stream: true }));
 });
 
@@ -55,9 +56,7 @@ gulp.task('js', function() {
             './node_modules/jquery/dist/jquery.js',
             './node_modules/fastclick/lib/*.js',
             './node_modules/slick-carousel/slick/slick.js',
-            './js/atvi.js',
-            './js/navigation.js',
-            './js/skip-link-focus-fix.js',
+            path + '/js/*.js',
         ])
         .pipe(uglify())
         .pipe(concat('main.js'))
@@ -65,9 +64,8 @@ gulp.task('js', function() {
         .pipe(reload({ stream: true }));
 });
 
-
 gulp.task('default', ['sass', 'js', 'browserSync'], function() {
-    gulp.watch('*.scss', {cwd: 'sass/'}, ['sass']);
-    gulp.watch('**/*.scss', {cwd: 'sass/'}, ['sass']);
-    gulp.watch('*.js', {cwd: 'js/'}, ['js']);
+    gulp.watch('*.scss', {cwd: path + '/sass'}, ['sass']);
+    gulp.watch('**/*.scss', {cwd: path + '/sass'}, ['sass']);
+    gulp.watch('*.js', {cwd: path + 'js/'}, ['js']);
 });

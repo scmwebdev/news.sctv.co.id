@@ -44,6 +44,7 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 	## Galleries
 
 --------------------------------------------------------------*/
+
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,300);
 @import "variables-site/variables-site";
 @import "mixins/mixins-master";
@@ -111,6 +112,11 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 # Media
 --------------------------------------------------------------*/
 @import "media/media";
+
+/*--------------------------------------------------------------
+# Bootstrap
+--------------------------------------------------------------*/
+@import "../../../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
 /*--------------------------------------------------------------
 # Font Awesome

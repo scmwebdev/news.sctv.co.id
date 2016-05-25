@@ -18,14 +18,14 @@ var path = 'sneaky/wp-content/themes/news-sctv';
 gulp.task('browserSync', function() {
 
     var files = [
-        '*.css',
-        '*.php',
-        './inc/*.php',
-        './js/*.js',
-        './layouts/*.css',
-        './sass/*.scss',
-        './sass/**/*.scss',
-        './template-parts/*.php',
+        path + '/*.css',
+        path + '/*.php',
+        path + '/inc/*.php',
+        path + '/js/*.js',
+        path + '/layouts/*.css',
+        path + '/sass/*.scss',
+        path + '/sass/**/*.scss',
+        path + '/template-parts/*.php',
     ];
 
     browserSync.init(files, {
@@ -55,7 +55,7 @@ gulp.task('js', function() {
             './node_modules/jquery/dist/jquery.js',
             './node_modules/fastclick/lib/*.js',
             './node_modules/slick-carousel/slick/slick.js',
-            path + '/js/news.sctv.js',
+            path + '/js/news-sctv.js',
         ])
         .pipe(concat('news-sctv.js'))
         .pipe(gulp.dest(path))
@@ -72,5 +72,5 @@ gulp.task('fonts', function() {
 gulp.task('default', ['sass', 'js', 'browserSync'], function() {
     gulp.watch('*.scss', {cwd: path + '/sass'}, ['sass']);
     gulp.watch('**/*.scss', {cwd: path + '/sass'}, ['sass']);
-    gulp.watch('*.js', {cwd: path + 'js/'}, ['js']);
+    gulp.watch('*.js', {cwd: path + 'js'}, ['js']);
 });

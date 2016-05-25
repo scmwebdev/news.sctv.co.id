@@ -46,6 +46,7 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 --------------------------------------------------------------*/
 @import "variables-site/variables-site";
 @import "mixins/mixins-master";
+@import "partial/partial";
 
 /*--------------------------------------------------------------
 # Normalize
@@ -86,6 +87,8 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 # Clearings
 --------------------------------------------------------------*/
 @import "modules/clearings";
+
+
 
 /*--------------------------------------------------------------
 # Widgets

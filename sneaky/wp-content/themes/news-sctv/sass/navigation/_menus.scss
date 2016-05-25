@@ -94,6 +94,21 @@
 
 #masthead {
     border-bottom: 1px solid #ccc;
+    &.active {
+        #site-menu-bar {
+            background-color: $color__highlight;
+            .fa-times {
+                display: block;
+            }
+            .fa-bars {
+                display: none;
+            }
+        }
+
+        #site-navigation {
+        	left: 0;
+        }
+    }
 }
 
 .site-menu {
@@ -104,9 +119,6 @@
             text-align: center;
             color: $color__menubar;
             display: block;
-            img {
-                // max-width: 80px;
-            }
         }
     }
 }
@@ -123,15 +135,7 @@
         .fa-bars {
             display: block;
         }
-        &.active {
-            background-color: $color__highlight;
-            .fa-times {
-                display: block;
-            }
-            .fa-bars {
-                display: none;
-            }
-        }
+        &.active {}
         .fa-times {
             color: #fff;
         }
@@ -150,4 +154,5 @@
 nav {
     position: absolute;
     left: -999px;
+    @include transition(.2s);
 }

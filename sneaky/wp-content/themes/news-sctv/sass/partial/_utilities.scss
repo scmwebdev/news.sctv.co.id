@@ -1,0 +1,116 @@
+/* =================
+* Utility Classes
+* ================= */
+
+.fullwidth {
+    width: 100%;
+}
+
+.float-right {
+    float: right;
+}
+
+.float-left {
+    float: left;
+}
+
+ul.nodots {
+    margin: 0;
+    padding-left: 0;
+    li {
+        list-style-type: none !important;
+    }
+}
+
+.active {
+    display: block;
+}
+
+.not-active {
+    display: none;
+}
+
+.events-none {
+    pointer-events: none;
+}
+
+.vis-hidden {
+    visibility: hidden;
+}
+
+.vcenter > div {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+    &:last-child {
+        margin-left: -5px;
+    }
+}
+
+.relative {
+    position: relative;
+}
+
+
+/* ------------------------------------
+ * Spacing - Padding and Margin
+ * ------------------------------------ */
+
+
+/*
+ * Generate spacepad and spacemar
+ * result: spacepad-5, spacepad-10, etc..
+ */
+
+@for $i from 1 through 4 {
+    $x: $i * 10 / 2;
+    .spacepad-#{$x} {
+        padding-top: $x + px;
+        padding-bottom: $x + px;
+    }
+    .spacemar-#{$x} {
+        margin-top: $x + px;
+        margin-bottom: $x + px;
+    }
+}
+
+$direction: top right bottom left;
+@each $dir in $direction {
+    .no-padding-#{$dir} {
+        padding-#{$dir}: 0px;
+    }
+    .no-margin-#{$dir} {
+        margin-#{$dir}: 0px;
+    }
+}
+
+.no-padding {
+    padding: 0;
+}
+
+.no-spacepad {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.no-spacepad-side {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.no-margin {
+    margin: 0;
+}
+
+.no-spacemar {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.no-spacemar-side {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+
+/* ------------------------------------ */

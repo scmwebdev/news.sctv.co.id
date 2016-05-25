@@ -1,0 +1,23 @@
+{
+  "name": "news.sctv.co.id",
+  "version": "1.0.0",
+  "description": "dependencies for news.sctv.co.id",
+  "main": "index.js",
+  "dependencies": {
+    "fastclick": "^1.0.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scmwebdev/news.sctv.co.id.git"
+  },
+  "author": "gamal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/scmwebdev/news.sctv.co.id/issues"
+  },
+  "homepage": "https://github.com/scmwebdev/news.sctv.co.id#readme"
+}

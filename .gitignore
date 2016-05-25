@@ -1,0 +1,7 @@
+# LIST OF IGNORED FILES
+
+# ignore npm packages
+node_modules/
+
+# ignore raw data/
+kitchen/

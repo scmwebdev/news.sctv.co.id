@@ -2,3 +2,9 @@
 
 
 @import 'frontpage';
+
+.site-page-content {
+ 	#latest {
+ 		@include spacepad(15px);
+ 	}
+}

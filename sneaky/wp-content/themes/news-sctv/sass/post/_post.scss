@@ -1,0 +1,28 @@
+.item-list {}
+
+.item-list-desc {
+	min-height: 5em;
+	border-left: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+    &-title {
+        font-size: 1em;
+        text-transform: uppercase;
+        font-weight: 700;
+        line-height: 1.1;
+        padding-left: 0.5em;
+        @include spacepad(1em);
+    }
+    &-icon {
+        text-align: center;
+        @include spacepad(1em);
+        color: #fff;
+        background-color: $color__highlight;
+        cursor: pointer;
+        @include transition(.2s);
+        &:hover,
+        &:focus {
+        	// color: #fff;
+        	background-color: $color__secondary__dark;
+        }
+    }
+}

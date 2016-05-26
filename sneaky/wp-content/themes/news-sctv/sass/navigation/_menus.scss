@@ -41,7 +41,6 @@
     li {
         // float: left;
         position: relative;
-        
         border-bottom: 1px solid $color__secondary__dark;
         a {
             color: #fff;
@@ -144,9 +143,14 @@
 
 /* NAVIGATION */
 
+.page-content,
+#site-navigation {
+    @include transition(.2s);
+}
+
 body {
     &.menu-active {
-    	overflow: hidden;
+        overflow: hidden;
         #site-menu-bar {
             background-color: $color__highlight;
             .fa-times {
@@ -162,11 +166,10 @@ body {
     }
 }
 
-nav {
+#site-navigation {
     height: 100%;
     position: absolute;
     left: -999px;
-    @include transition(.2s);
     background-color: $color__secondary;
     width: 300px;
 }

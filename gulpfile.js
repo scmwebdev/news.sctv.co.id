@@ -29,7 +29,7 @@ gulp.task('browserSync', function() {
     ];
 
     browserSync.init(files, {
-        proxy: "http://localhost/news.sctv.co.id/",
+        proxy: "http://localhost:8888/news.sctv.co.id/",
         notify: 'false'
     });
 });
@@ -45,7 +45,7 @@ gulp.task('sass', function() {
         .pipe(sourcemaps.init())
         .pipe(sass({ outputStyle: 'compressed' }))
         .pipe(autoprefixer())
-        .pipe(sourcemaps.write(path))
+        .pipe(sourcemaps.write())
         .pipe(gulp.dest(path)) 
         .pipe(reload({ stream: true }));
 });

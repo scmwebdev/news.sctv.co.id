@@ -1,44 +1,50 @@
 <?php get_header(); ?>
 
-<div class="segment" id="mainbanner">
-	<?php 
+<div class="site-page-content">
+	<div class="segment" id="mainbanner">
+		<?php 
 
-		$get_banner = get_field('banner');
-		$banner = wp_get_attachment_image( $get_banner , 'mainbanner_lg');
-		if ($banner) { 
-			echo $banner;
-		}
-	 ?>
-</div>
-
-<div class="segment" id="latest">
-	<div class="container">
-	<?php
-
-		$args = array (
-			// 'post_type'              => array( 'post' ),
-			'post_status'            => array( 'publish' ),
-			'order'                  => 'DESC',
-		);
-
-		// The Query
-		$query = new WP_Query( $args );
-
-		// The Loop
-		if ( $query->have_posts() ) {
-			while ( $query->have_posts() ) {
-				$query->the_post();
-				get_template_part('template-parts/frontpage', 'latest');
+			$get_banner = get_field('banner');
+			$banner = wp_get_attachment_image( $get_banner , 'mainbanner_lg');
+			if ($banner) { 
+				echo $banner;
 			}
-		} else {
-			// no posts found
-			echo 'no posts found';
-		}
+		 ?>
+	</div>
 
-		// Restore original Post Data
-		wp_reset_postdata();
+	<div class="segment" id="latest">
+		<div class="container">
+			<h2>Berita Paling Baru</h2>
+			<div class="video-list row">
+			<?php
+				$args = array (
+					'post_status'            => array( 'publish' ),
+					'order'                  => 'DESC',
+					'post_type' 			 => 'post',
+					'posts_per_page' 		 => 6,
+				);
 
-	?>
+				// The Query
+				$query = new WP_Query( $args );
+
+				// The Loop
+				if ( $query->have_posts() ) {
+					while ( $query->have_posts() ) {
+						$query->the_post();
+						get_template_part('template-parts/frontpage', 'latest');
+					}
+				} else {
+					// no posts found
+					echo 'no posts found';
+				}
+
+				// Restore original Post Data
+				wp_reset_postdata();
+
+			?>
+			</div>
+		</div>
 	</div>
 </div>
+
 <?php get_footer(); ?>

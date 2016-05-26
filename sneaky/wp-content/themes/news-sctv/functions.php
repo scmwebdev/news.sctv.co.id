@@ -160,7 +160,7 @@ require get_template_directory() . '/inc/jetpack.php';
 add_image_size( 'mainBanner_lg', 1920, 600, true);
 add_image_size( 'mainBanner_md', 992, 400, true);
 add_image_size( 'mainBanner_xs', 600, 600, true);
-add_image_size( 'video_thumb', 500, 250, hard);
+add_image_size( 'video_thumb', 400, 250, hard);
 add_image_size( 'logo', 200, 200, hard);
 
 /* ==================================================================
@@ -249,7 +249,7 @@ function custom_pagination($numpages = '', $pagerange = '', $paged='') {
   $paginate_links = paginate_links($pagination_args);
 
   if ($paginate_links) {
-    echo '<nav class="custom-pagination col-xs-12 text-center __spacepad">';
+    echo '<nav class="custom-pagination col-xs-12 text-center spacepad">';
       //echo "<span class='page-numbers page-num'>Page " . $paged . " of " . $numpages . "</span> ";
       echo $paginate_links;
     echo "</nav>";

@@ -42,23 +42,30 @@
 
 // video styling
 header.entry-header {
-	background: #000;
-	text-align: center;
-	max-height: 600px;
-	overflow: hidden;
+    background: #000;
+    text-align: center;
+    max-height: 600px;
+    overflow: hidden;
     > iframe.vidio-embed {
         max-width: 1024px;
     }
 }
 
 .article .gallery-caption {
-	display: none !important;
-}
-.gallery-icon {
-	@include filter(grayscale, 100%);
-	@include transition(.2s);
-	&:hover {
-		@include filter(grayscale, 0%);
-	}
+    display: none !important;
 }
 
+.gallery-icon {
+    @include filter(grayscale, 100%);
+    @include transition(.2s);
+    &:hover {
+        @include filter(grayscale, 0%);
+    }
+}
+
+.entry-content {
+    .subtitle {
+    	@extend .yarpp-related;
+    	padding-bottom: 1.2em;
+    }
+}

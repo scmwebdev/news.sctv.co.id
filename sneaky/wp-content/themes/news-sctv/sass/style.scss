@@ -124,6 +124,9 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 --------------------------------------------------------------*/
 @import "../../../../../node_modules/font-awesome/scss/font-awesome.scss";
 
+.gallery {
+	@extend .clearfix;
+}
 .gallery-option, figcaption {
 	display: none !important;
 }

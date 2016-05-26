@@ -52,12 +52,19 @@
 		<?php  
 			$gallery = get_field('gallery');
 			if($gallery) { ?>
+
 				<hr>
+				<h3 class="subtitle">Gallery</h3>
 				<div class="article-gallery row">
 					<?php echo $gallery; ?>
 				</div>
+				<hr>
 		<?php }
 		?>
+
+		<?php 
+			related_posts(); 
+		 ?>
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">

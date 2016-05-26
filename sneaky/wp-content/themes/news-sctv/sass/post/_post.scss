@@ -40,6 +40,7 @@
 
 /** Article Posts **/
 
+// video styling
 header.entry-header {
 	background: #000;
 	text-align: center;
@@ -49,3 +50,15 @@ header.entry-header {
         max-width: 1024px;
     }
 }
+
+.article .gallery-caption {
+	display: none !important;
+}
+.gallery-icon {
+	@include filter(grayscale, 100%);
+	@include transition(.2s);
+	&:hover {
+		@include filter(grayscale, 0%);
+	}
+}
+

@@ -123,3 +123,12 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 # Font Awesome
 --------------------------------------------------------------*/
 @import "../../../../../node_modules/font-awesome/scss/font-awesome.scss";
+
+.gallery-option, figcaption {
+	display: none !important;
+}
+
+.gallery-columns-4 .gallery-item {
+	@extend .col-xs-4;
+	@extend .col-sm-3;
+}

@@ -48,13 +48,16 @@
 			) );
 
 		?>
-			<div class="article-gallery">
-				<?php 
-					$getGallery = get_field('gallery');
-					echo $getGallery;
-				 ?>
-			</div>
-		</div>
+
+		<?php  
+			$gallery = get_field('gallery');
+			if($gallery) { ?>
+				<hr>
+				<div class="article-gallery row">
+					<?php echo $gallery; ?>
+				</div>
+		<?php }
+		?>
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">

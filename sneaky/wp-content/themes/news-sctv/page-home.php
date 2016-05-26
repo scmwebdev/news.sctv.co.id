@@ -14,7 +14,10 @@
 
 	<div class="segment" id="latest">
 		<div class="container">
-			<h2>Berita Paling Baru</h2>
+			<div class="segment-title">
+				<h2 class="title">Berita Paling Baru</h2>
+			</div>
+			
 			<div class="video-list row">
 			<?php
 				$args = array (

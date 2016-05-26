@@ -256,3 +256,9 @@ function custom_pagination($numpages = '', $pagerange = '', $paged='') {
   }
 
 }
+
+/* ==================================================================
+ * Remove P tags - ACF
+ * ================================================================== */
+
+remove_filter ('acf_the_content', 'wpautop');

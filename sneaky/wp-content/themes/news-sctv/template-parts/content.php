@@ -11,11 +11,16 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
-		<div id="mainbanner">
 			<?php 
-				the_post_thumbnail('mainbanner_lg');
+				$getVideo = get_field('video');
+				$video = str_replace('player_only=false', 'player_only=true', $getVideo);
+				if($video) {
+					echo $video;
+				} else {
+					the_post_thumbnail('mainbanner_lg');	
+				}
+				
 		 	?>
-		</div>
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
@@ -43,6 +48,12 @@
 			) );
 
 		?>
+			<div class="article-gallery">
+				<?php 
+					$getGallery = get_field('gallery');
+					echo $getGallery;
+				 ?>
+			</div>
 		</div>
 	</div><!-- .entry-content -->
 

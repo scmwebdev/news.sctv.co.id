@@ -1,3 +1,5 @@
+/** Posts **/
+
 .item-list {
     &:hover,
     &:focus {
@@ -32,5 +34,18 @@
         background-color: $color__highlight;
         cursor: pointer;
         @include transition(.2s);
+    }
+}
+
+
+/** Article Posts **/
+
+header.entry-header {
+	background: #000;
+	text-align: center;
+	max-height: 600px;
+	overflow: hidden;
+    > iframe.vidio-embed {
+        max-width: 1024px;
     }
 }

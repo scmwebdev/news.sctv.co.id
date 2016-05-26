@@ -29,7 +29,9 @@
                 width: 200px;
             }
             :hover > a,
-            .focus > a {}
+            .focus > a {
+
+            }
             a:hover,
             a.focus {}
         }
@@ -49,6 +51,7 @@
         &:hover > a,
         &.focus > a {
             color: $color__text__highlight;
+            text-decoration: none !important;
         }
     }
     a {
@@ -111,6 +114,9 @@
             text-align: center;
             color: $color__menubar;
             display: block;
+            &:hover {
+                text-decoration: none !important;
+            }
         }
     }
 }

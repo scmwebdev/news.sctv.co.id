@@ -114,3 +114,37 @@ $direction: top right bottom left;
 
 
 /* ------------------------------------ */
+
+/* ------------------------------------
+ * Headings
+ * ------------------------------------ */
+
+/* 
+ * Line across the title
+ * HTML => <div class="segment-title"><h2 class="title"></h2></div>
+ */
+.segment-title {
+    position: relative;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    line-height: 1;
+    text-align: center;
+    &:before {
+        content: "";
+        position: absolute;
+        top: 1em;
+        left: 0;
+        z-index: 0;
+        width: 100%;
+        line-height: 1;
+        border-top: 1px solid #ccc;
+    }
+    > .title {
+        position: relative;
+        display: inline-block;
+        background: #fff;
+        margin: 0;
+        padding: 0 10px;
+    }
+}
+

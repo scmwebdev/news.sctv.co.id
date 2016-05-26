@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<div class="site-page-content">
+<div id="site-page-content">
 	<div class="segment" id="mainbanner">
 		<?php 
 

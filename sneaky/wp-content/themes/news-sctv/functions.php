@@ -263,3 +263,20 @@ function custom_pagination($numpages = '', $pagerange = '', $paged='') {
  * ================================================================== */
 
 remove_filter ('acf_the_content', 'wpautop');
+
+/* ==================================================================
+ * Replace String for Vidio.com Embed
+ * by default vidio.com set player only to 'false' so we have to change
+ * that to 'true' automatically
+ * ================================================================== */
+
+function videoCustom($title = 'Berikut Cuplikan') {
+
+	$getVideo = get_field('video');
+	$video = str_replace('player_only=false', 'player_only=true', $getVideo);
+	if ($video) {
+		echo '<h3 class="subtitle">' . $title . '</h3>';
+		echo $video;
+	}
+	
+}

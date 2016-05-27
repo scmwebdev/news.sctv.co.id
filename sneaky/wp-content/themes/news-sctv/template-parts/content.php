@@ -11,7 +11,7 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<div class="container">
-		<header class="entry-title col-xs-12">
+		<header class="col-xs-12">
 			<div class="col-sm-8 no-spacepad-side">
 			<?php
 				if ( is_single() ) {
@@ -42,13 +42,17 @@
 						the_title( '<span class="screen-reader-text">"', '"</span>', false )
 					) );
 
-					/** display post tags **/
-					the_tags('<div class="entry-tags clearfix">', ' ', '</div>');
-
-					$target = get_field('video');
-					$new_target = str_replace('player_only=false', 'player_only=true', $target);
-					echo $new_target;
 				?>
+				<div class="article-video spacepad-20">
+					<?php videoCustom(); ?>
+				</div>
+				<div class="article-tags spacepad-20">
+
+					<?php
+						/** display post tags **/
+						the_tags('<div class="entry-tags clearfix">', ' ', '</div>');
+					?>	
+				</div>
 				<?php  
 					$gallery = get_field('gallery');
 					if($gallery) { ?>

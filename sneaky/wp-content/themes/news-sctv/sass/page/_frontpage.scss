@@ -1,4 +1,55 @@
 #mainbanner {
-	max-height: 600px;
-	overflow: hidden;
+    overflow: hidden;
+}
+
+#latest {
+    
+    overflow-x: hidden;
+    @extend .custom-height;
+    @include breakpoint(md) {
+        position: absolute;
+        right: 0;
+        
+        overflow-y: scroll;
+    }
+}
+
+
+/** LATEST POST ON THE FRONTPAGE - TEMPLATE 2 (side) **/
+
+#latest.template2 {
+    @extend .no-padding;
+    .title {
+        margin: 0;
+        padding: 15px;
+        background-color: $color__highlight;
+        color: #fff;
+    }
+    .item-list {
+        @extend .no-spacepad-side;
+        @include spacepad(1.1em);
+        background-color: #F3F3F3;
+        border-bottom: 1px solid #ddd;
+        a {
+            color: $color__secondary;
+            &:hover {
+                color: $color__highlight__link;
+            }
+        }
+        > div {
+            @include spacepad(15px);
+            border: none;
+        }
+        &-desc {
+            border: none;
+        }
+        &-desc-icon {
+            border-radius: 50%;
+            padding: 1.7em;
+            background-color: #F3F3F3;
+            .fa {
+                color: $color__highlight;
+            }
+        }
+    }
 }

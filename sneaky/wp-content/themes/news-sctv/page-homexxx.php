@@ -1,23 +1,24 @@
 <?php get_header(); ?>
 
 <div id="site-page-content">
-	<header id="site-page-header">
+	<div class="segment" id="mainbanner">
+		<?php 
 
-		<div class="segment col-xs-12 col-md-9 no-padding" id="mainbanner">
-			<?php 
+			$get_banner = get_field('banner');
+			$banner = wp_get_attachment_image( $get_banner , 'mainbanner_lg');
+			if ($banner) { 
+				echo $banner;
+			}
+		 ?>
+	</div>
 
-				$get_banner = get_field('banner');
-				$banner = wp_get_attachment_image( $get_banner , 'mainbanner_lg');
-				if ($banner) { 
-					echo $banner;
-				}
-			 ?>
-		</div>
-
-		<div class="segment col-xs-12 col-md-3 template2" id="latest">
-			<h2 class="title">Latest News</h2>
+	<div class="segment" id="latest">
+		<div class="container">
+			<div class="segment-title">
+				<h2 class="title">Berita Paling Baru</h2>
+			</div>
 			
-			<div class="video-list">
+			<div class="video-list row">
 			<?php
 				$args = array (
 					'post_status'            => array( 'publish' ),
@@ -46,7 +47,7 @@
 			?>
 			</div>
 		</div>
-	</header><!-- /header -->
+	</div>
 </div>
 
 <?php get_footer(); ?>

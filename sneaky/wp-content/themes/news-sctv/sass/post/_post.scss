@@ -41,13 +41,23 @@
 /** Article Posts **/
 
 // video styling
-header.entry-header {
-    background: #000;
+.entry-header {
     text-align: center;
-    max-height: 600px;
-    overflow: hidden;
     > iframe.vidio-embed {
-        max-width: 1024px;
+        
+        max-height: 330px;
+        overflow: hidden;
+        @include breakpoint(sm) {
+            max-height: 18em;
+        }
+
+        @include breakpoint(md) {
+            max-height: 24em;
+        }
+
+        @include breakpoint(lg) {
+            max-height: 30em;
+        }
     }
 }
 
@@ -64,8 +74,40 @@ header.entry-header {
 }
 
 .entry-content {
+    padding-bottom: 1.2em;
     .subtitle {
-    	@extend .yarpp-related;
-    	padding-bottom: 1.2em;
+        font-weight: bold;
+        padding: 0 0 5px 0;
+        font-size: 125%;
+        text-transform: capitalize;
+        margin: 0;
+    }
+
+    .entry-tags {
+    	a {
+    		padding: .5em 1.2em;
+    		background: #ddd;
+    		
+    		&:hover {
+    			text-decoration: none !important;
+    		}
+    	}
+    }
+}
+
+.article-rightCol {
+    .yarpp-related {
+        @extend .no-spacemar;
+    }
+}
+
+.related {
+    > li {
+        border-bottom: 1px solid #ddd;
+        padding: 1em 0;
+    }
+
+    &-title {
+        font-size: 85%;
     }
 }

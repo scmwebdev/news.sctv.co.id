@@ -158,6 +158,7 @@ require get_template_directory() . '/inc/jetpack.php';
  * ================================================================== */
 
 add_image_size( 'mainBanner_lg', 1920, 600, true);
+add_image_size( 'mainBanner_lg_2', 1000, 600, true);
 add_image_size( 'mainBanner_md', 992, 400, true);
 add_image_size( 'mainBanner_xs', 600, 600, true);
 add_image_size( 'video_thumb', 400, 250, hard);

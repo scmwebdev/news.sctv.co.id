@@ -1,11 +1,23 @@
 /* Import Pages */
 
-@import 'frontpage';
-
-#site-page-content {
-	position: relative;
-	@include transition(1s);
-    #latest {
-        @include spacepad(15px);
+.custom-height {
+    @include breakpoint(md) {
+        max-height: 400px;
     }
+    @include breakpoint(lg) {
+        max-height: 600px;
+    }
+}
+
+@import 'frontpage';
+#site-page-content {
+    position: relative;
+    @include transition(1s);
+}
+
+#site-page-header {
+    overflow: hidden;
+    position: relative;
+
+    @extend .custom-height;
 }

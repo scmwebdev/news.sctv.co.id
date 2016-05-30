@@ -38,15 +38,6 @@ ul.nodots {
     visibility: hidden;
 }
 
-.vcenter > div {
-    display: inline-block;
-    vertical-align: middle;
-    float: none;
-    &:last-child {
-        margin-left: -5px;
-    }
-}
-
 .relative {
     position: relative;
 }
@@ -85,66 +76,56 @@ $direction: top right bottom left;
 }
 
 .no-padding {
-    padding: 0 !important;
+    padding: 0;
 }
 
 .no-spacepad {
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
+    padding-top: 0;
+    padding-bottom: 0;
 }
 
 .no-spacepad-side {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 .no-margin {
-    margin: 0 !important;
+    margin: 0;
 }
 
 .no-spacemar {
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .no-spacemar-side {
-    margin-left: 0 !important;
-    margin-right: 0 !important;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 
 /* ------------------------------------ */
 
-/* ------------------------------------
- * Headings
- * ------------------------------------ */
+/*use the nofloat if child(div) elements are float*/
+.vertical-align-nofloat > div,
+.vertical-align-nofloat > ul {
+    display: inline-block;
+    float: none !important;
 
-/* 
- * Line across the title
- * HTML => <div class="segment-title"><h2 class="title"></h2></div>
- */
-.segment-title {
-    position: relative;
-    margin-top: 1.5em;
-    margin-bottom: 1.5em;
-    line-height: 1;
-    text-align: center;
-    &:before {
-        content: "";
-        position: absolute;
-        top: 1em;
-        left: 0;
-        z-index: 0;
-        width: 100%;
-        line-height: 1;
-        border-top: 1px solid #ccc;
-    }
-    > .title {
-        position: relative;
-        display: inline-block;
-        background: #fff;
-        margin: 0;
-        padding: 0 10px;
-    }
+    vertical-align: middle;
+}
+/*move the all child of the div except the first child so that it can sit side by side*/
+.vertical-align-nofloat > div:not(first-child),
+.vertical-align-nofloat > ul:not(first-child) {
+    margin-left: -4px;
 }
 
+/* create skew object - it must have the correct html structure*/
+.skew {
+    &-bg {
+        transform: skew(0, -3deg); //skew
+    }
+    &-content {
+        transform: skew(0, 3deg);  //inverse skew
+    }
+}

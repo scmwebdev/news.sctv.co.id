@@ -11,7 +11,7 @@ Text Domain: news-sctv
 Tags:
 
 This theme, like WordPress, is licensed under the GPL.
-Use it to make something cool, have fun, and share what you've learned with others.
+Use it to make something cool, have fun, and share what you"ve learned with others.
 
 news sctv theme is based on Underscores http://underscores.me/, (C) 2012-2016 Automattic, Inc.
 Underscores is distributed under the terms of the GNU GPL v2 or later.
@@ -47,13 +47,13 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,300);
 @import "variables-site/variables-site";
-@import "mixins/mixins-master";
+@import "mixin/mixins-master";
 @import "partial/partial";
 
 /*--------------------------------------------------------------
 # Normalize
 --------------------------------------------------------------*/
-@import "normalize";
+// @import "normalize";
 
 /*--------------------------------------------------------------
 # Typography

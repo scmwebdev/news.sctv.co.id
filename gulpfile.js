@@ -69,6 +69,13 @@ gulp.task('fonts', function() {
     return gulp.src(['node_modules/font-awesome/fonts/**/*']) 
     .pipe(gulp.dest('sneaky/wp-content/themes/fonts/'))
 });
+
+gulp.task('kodein-sass', function() {
+    return gulp.src([
+        'lib/kodein-sass/kodein/**/*'
+    ])
+    .pipe(gulp.dest(path + '/sass/'))
+});
 gulp.task('default', ['sass', 'js', 'browserSync'], function() {
     gulp.watch('*.scss', {cwd: path + '/sass'}, ['sass']);
     gulp.watch('**/*.scss', {cwd: path + '/sass'}, ['sass']);

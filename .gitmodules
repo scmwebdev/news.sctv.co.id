@@ -1,0 +1,3 @@
+[submodule "lib/kodein-sass"]
+	path = lib/kodein-sass
+	url = https://github.com/enoa7/sass.git

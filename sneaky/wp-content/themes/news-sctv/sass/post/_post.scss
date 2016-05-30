@@ -1,43 +1,3 @@
-/** Posts **/
-
-.item-list {
-    &:hover,
-    &:focus {
-        .item-list-desc-icon {
-            background-color: $color__secondary__dark;
-        }
-    }
-}
-
-.item-list-desc {
-    min-height: 5em;
-    border-left: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
-    &-title {
-        font-size: 1em;
-        text-transform: uppercase;
-        font-weight: 700;
-        line-height: 1.1;
-        padding-left: 0.5em;
-        @include spacepad(1em);
-    }
-    &-date {
-        font-size: 70%;
-        font-weight: 500;
-        color: $color__highlight;
-        padding-top: 0.5em;
-    }
-    &-icon {
-        text-align: center;
-        @include spacepad(1em);
-        color: #fff;
-        background-color: $color__highlight;
-        cursor: pointer;
-        @include transition(.2s);
-    }
-}
-
-
 /** Article Posts **/
 
 .article {
@@ -59,6 +19,7 @@
     color: $color__secondary;
     font-weight: 700;
 }
+
 .article .gallery-caption {
     display: none !important;
 }
@@ -109,5 +70,82 @@
     }
     &-title {
         font-size: 85%;
+    }
+}
+
+
+/* 
+ * Post Styling *
+ */
+
+ $title_size: 1em;
+
+.item-list-desc {
+    &-title {
+        text-transform: uppercase;
+        font-weight: 700;
+        line-height: 1.1;
+    }
+    &-date {
+        font-weight: 500;
+        color: $color__highlight;
+        padding-top: 0.5em;
+    }
+    &-text {
+        @include spacepad(1em);
+    }
+}
+
+
+/* Latest News */
+
+#latest {
+    .frontpage & {
+        .item-list {
+            &:hover,
+            &:focus {
+                .item-list-desc-icon {
+                    background-color: $color__secondary__dark;
+                }
+            }
+        }
+        .item-list-desc {
+            min-height: 5em;
+            &-title {
+                font-size: $title_size;
+                padding-left: 0.5em;
+                @include spacepad(1em);
+            }
+            &-date {
+                font-size: $title_size - 0.1em;
+            }
+            &-icon {
+                text-align: center;
+                @include spacepad(1em);
+                color: #fff;
+                background-color: $color__highlight;
+                cursor: pointer;
+                @include transition(.2s);
+            }
+        }
+    }
+}
+
+
+/* Top Stories */
+
+#top-stories {
+    .frontpage & {
+        .item-list-desc {
+            &-title {
+                font-size: $title_size + 0.5em;
+            }
+            &-date {
+                font-size: $title_size - 0.3em;
+            }
+            &-button {
+                float: right;
+            }
+        }
     }
 }

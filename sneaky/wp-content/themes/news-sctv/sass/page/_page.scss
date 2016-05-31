@@ -32,10 +32,11 @@
     color: #fff;
 }
 
-.site-content {
+.section-content {
     .container {
         @include breakpoint(xs) {
-            @extend .no-spacepad-side;
+            padding-left: 0;
+            padding-right: 0;
         }
     }
 }

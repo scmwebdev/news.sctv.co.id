@@ -43,19 +43,9 @@
 					) );
 
 				?>
-				<?php videoCustom(); ?>
-				<?php post_tag() ?>
-				<?php  
-					$gallery = get_field('gallery');
-					if($gallery) { ?>
-
-						<hr>
-						<h3 class="subtitle">Gallery</h3>
-						<div class="article-gallery row">
-							<?php echo $gallery; ?>
-						</div>
-						<hr>
-				<?php } ?>
+				<?php video_custom(); ?>
+				<?php post_tag(); ?>
+				<?php show_gallery(); ?>
 			</div><!-- .entry-content -->
 		</div>
 		<div class="article-rightCol col-xs-12 col-sm-4">

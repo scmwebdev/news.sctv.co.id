@@ -272,7 +272,8 @@ remove_filter ('acf_the_content', 'wpautop');
  * that to 'true' automatically
  * ================================================================== */
 
-function videoCustom($title = 'Berikut Cuplikan') {
+// Retrieve video 
+function video_custom($title = '') {
 
 	$getVideo = get_field('video');
 	$video = str_replace('player_only=false', 'player_only=true', $getVideo);
@@ -285,6 +286,7 @@ function videoCustom($title = 'Berikut Cuplikan') {
 	
 }
 
+// retrieve post tag
 function post_tag() {
 	if (the_tags()) {
 		echo '<div class="article-tags spacepad-20">';
@@ -293,6 +295,18 @@ function post_tag() {
 	}
 }
 
+function show_gallery() {
+	$gallery = get_field('gallery');
+	if($gallery) {
+
+		echo '<hr>
+		<h3 class="subtitle">Gallery</h3>
+		<div class="article-gallery row">
+			'. $gallery .'
+		</div>
+		<hr>';
+	}
+}
 // display custom excerpt with
 function custom_excerpt($charLimit) {
 

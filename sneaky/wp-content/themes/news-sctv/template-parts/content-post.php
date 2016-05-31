@@ -1,4 +1,4 @@
-<div class="item-list clearfix">
+<div class="item-list clearfix spacepad-15">
 	<?php if(has_post_thumbnail()) { ?>
 		<div class="item-list-thumb col-xs-12 col-sm-5">
 			<a href="<?php the_permalink() ?>">

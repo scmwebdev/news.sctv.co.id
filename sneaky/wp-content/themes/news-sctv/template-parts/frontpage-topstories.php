@@ -1,10 +1,12 @@
 <div class="item-list clearfix">
-	<div class="item-list-thumb col-xs-12 col-sm-4">
+	<div class="item-list-thumb col-xs-12 col-sm-5">
 		<a href="<?php the_permalink() ?>">
-			<?php the_post_thumbnail('video_thumb'); ?>
+
+			<img class="img-responsive center-block" src="<?php the_post_thumbnail_url(); ?>" alt="Thumbnail - <?php the_title() ?> ">
+			
 		</a>
 	</div>
-	<div class="item-list-desc col-xs-12 col-sm-8">
+	<div class="item-list-desc col-xs-12 col-sm-7">
 		<div class="item-list-desc-title">
 			<?php the_title(); ?>
 			<div class="item-list-desc-date"><?php echo get_the_date(); ?></div>

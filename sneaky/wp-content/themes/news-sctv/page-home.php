@@ -50,10 +50,9 @@
 	<content class="clearfix">
 		<div class="segment" id="top-stories">
 			<div class="container">
-				<h2 class="title">Top Stories</h2>
-				<hr>
-				<div class="segment-wrap row">
-					
+				<div class="segment-wrap col-sm-9 row">
+					<h2 class="title">Top Stories</h2>
+					<hr>
 				
 				<?php
 					$args = array (

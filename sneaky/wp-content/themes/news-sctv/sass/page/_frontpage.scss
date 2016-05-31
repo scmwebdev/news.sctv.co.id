@@ -17,6 +17,9 @@
         @include spacepad(1.1em);    
         // background-color: #F3F3F3;
         border-bottom: 1px solid #ddd;
+        &:last-child {
+            border-bottom: none;
+        }
         a {
             color: $color__secondary;
             &:hover {

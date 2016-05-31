@@ -139,8 +139,11 @@ $title_size: 1em;
 
 /* Top Stories */
 
-#top-stories {
+.item-post {
     .frontpage & {
+        .item-list-thumb {
+            padding-bottom: 1em;
+        }
         .item-list-desc {
             @include breakpoint(sm) {
                 &-title {

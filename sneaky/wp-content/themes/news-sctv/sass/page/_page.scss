@@ -31,3 +31,11 @@
     background-color: $color__highlight;
     color: #fff;
 }
+
+.site-content {
+    .container {
+        @include breakpoint(xs) {
+            @extend .no-spacepad-side;
+        }
+    }
+}

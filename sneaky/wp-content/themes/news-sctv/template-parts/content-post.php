@@ -1,11 +1,13 @@
 <div class="item-list clearfix">
-	<div class="item-list-thumb col-xs-12 col-sm-5">
-		<a href="<?php the_permalink() ?>">
+	<?php if(has_post_thumbnail()) { ?>
+		<div class="item-list-thumb col-xs-12 col-sm-5">
+			<a href="<?php the_permalink() ?>">
 
-			<img class="img-responsive center-block" src="<?php the_post_thumbnail_url(); ?>" alt="Thumbnail - <?php the_title() ?> ">
-			
-		</a>
-	</div>
+				<img class="img-responsive center-block" src="<?php the_post_thumbnail_url(); ?>" alt="Thumbnail - <?php the_title() ?> ">
+				
+			</a>
+		</div>
+	<?php } ?>
 	<div class="item-list-desc col-xs-12 col-sm-7">
 		<div class="item-list-desc-title">
 			<?php the_title(); ?>

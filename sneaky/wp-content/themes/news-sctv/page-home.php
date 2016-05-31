@@ -22,7 +22,7 @@
 			<div class="video-list">
 			<?php
 
-				$max_post = max_post();
+				$max_post = max_post(4, 6);
 				$args = array (
 					'post_status'            => array( 'publish' ),
 					'order'                  => 'DESC',
@@ -51,16 +51,16 @@
 			</div>
 		</div>
 	</header><!-- /header -->
-	<section class="clearfix" id="site-page-content">
+	<section class="clearfix section-content">
 		<div class="container">
 			<div class="segment leftCol col-sm-9">
-				<div class="segment-wrap row clearfix" id="top-stories">
+				<div class="segment-wrap row clearfix item-post" id="top-stories">
 					<div class="spacemar-20">
 						<h2 class="title">Top Stories</h2>
 					</div>
 						
 				<?php
-					$max_post = max_post();
+					$max_post = max_post(4, 6);
 					$args = array (
 						'post_status'            => array( 'publish' ),
 						'order'                  => 'DESC',

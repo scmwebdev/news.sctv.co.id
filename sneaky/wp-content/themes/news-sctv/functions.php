@@ -277,10 +277,20 @@ function videoCustom($title = 'Berikut Cuplikan') {
 	$getVideo = get_field('video');
 	$video = str_replace('player_only=false', 'player_only=true', $getVideo);
 	if ($video) {
+		echo '<div class="article-video spacepad-20">';
 		echo '<h3 class="subtitle">' . $title . '</h3>';
 		echo $video;
+		echo '</div>';
 	}
 	
+}
+
+function post_tag() {
+	if (the_tags()) {
+		echo '<div class="article-tags spacepad-20">';
+		the_tags('<div class="entry-tags clearfix">', ' ', '</div>');
+		echo '</div>';
+	}
 }
 
 // display custom excerpt with
@@ -297,14 +307,14 @@ function custom_excerpt($charLimit) {
 }
 
 // dynamically change max post between mobile and desktop
-function max_post() {
+function max_post($mobile, $desktop) {
 
 	$max_post = 0;
 
 	if(is_mobile()) {
-		$max_post = 3;
+		$max_post = $mobile;
 	} else {
-		$max_post = 6;
+		$max_post = $desktop;
 	}
 
 	return $max_post;
@@ -317,5 +327,5 @@ function noimage() {
 	include('env.php');
 
 	
-	echo '<img class="img-responsive" src="'. $env_config['site_url'] .'/wp-content/uploads/2016/05/noimage.png" alt="no image">';
+	echo '<img class="img-responsive center-block" src="'. $env_config['site_url'] .'/wp-content/uploads/2016/05/noimage.png" alt="no image">';
 }

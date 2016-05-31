@@ -43,16 +43,8 @@
 					) );
 
 				?>
-				<div class="article-video spacepad-20">
-					<?php videoCustom(); ?>
-				</div>
-				<div class="article-tags spacepad-20">
-
-					<?php
-						/** display post tags **/
-						the_tags('<div class="entry-tags clearfix">', ' ', '</div>');
-					?>	
-				</div>
+				<?php videoCustom(); ?>
+				<?php post_tag() ?>
 				<?php  
 					$gallery = get_field('gallery');
 					if($gallery) { ?>

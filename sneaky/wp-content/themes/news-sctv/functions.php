@@ -281,3 +281,28 @@ function videoCustom($title = 'Berikut Cuplikan') {
 	}
 	
 }
+
+function custom_excerpt($charLimit) {
+
+	$excerpt = get_the_excerpt();
+	$content = get_the_content();
+	$readmore = ' ...';
+
+	if($content) {
+		$new_excerpt = substr($excerpt, 0, $charLimit) . $readmore;
+		return $new_excerpt;
+	}
+}
+
+function max_post() {
+
+	$max_post = 0;
+
+	if(is_mobile()) {
+		$max_post = 3;
+	} else {
+		$max_post = 6;
+	}
+
+	return $max_post;
+}

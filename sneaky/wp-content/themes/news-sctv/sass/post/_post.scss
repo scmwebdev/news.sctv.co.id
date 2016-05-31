@@ -78,8 +78,7 @@
  * Post Styling *
  */
 
- $title_size: 1em;
-
+$title_size: 1em;
 .item-list-desc {
     &-title {
         text-transform: uppercase;
@@ -98,9 +97,15 @@
 
 
 /* Latest News */
-
 #latest {
     .frontpage & {
+        overflow-x: hidden;
+        @extend .custom-height;
+        @include breakpoint(md) {
+            position: absolute;
+            right: 0;
+            overflow-y: scroll;
+        }
         .item-list {
             &:hover,
             &:focus {
@@ -114,7 +119,9 @@
             &-title {
                 font-size: $title_size;
                 padding-left: 0.5em;
-                @include spacepad(1em);
+                @include breakpoint(xs) {
+                    @include spacepad(1em);
+                }
             }
             &-date {
                 font-size: $title_size - 0.1em;

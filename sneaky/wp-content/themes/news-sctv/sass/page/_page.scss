@@ -18,6 +18,12 @@
 #site-page-header {
     overflow: hidden;
     position: relative;
-
     @extend .custom-height;
+}
+
+.title {
+    margin: 0;
+    padding: 15px;
+    background-color: $color__highlight;
+    color: #fff;
 }

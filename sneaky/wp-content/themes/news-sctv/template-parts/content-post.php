@@ -12,7 +12,9 @@
 			<div class="item-list-desc-date"><?php echo get_the_date(); ?></div>
 		</div>
 		<div class="item-list-desc-text">
-			<?php echo substr(get_the_excerpt(), 0, 250) . ' ...' ?>
+			<?php 
+				echo custom_excerpt(250);
+			?>
 		</div>
 		<div class="item-list-desc-button">
 			<a href="<?php the_permalink() ?>">

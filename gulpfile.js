@@ -65,17 +65,27 @@ gulp.task('js', function() {
         .pipe(reload({ stream: true }));
 });
 
+
+// copy font awesome fonts from node_modules to the themes folder
 gulp.task('fonts', function() {
     return gulp.src(['node_modules/font-awesome/fonts/**/*']) 
     .pipe(gulp.dest('sneaky/wp-content/themes/fonts/'))
 });
 
+// Copy kodein sass mixin and partial to the themes sass folder
 gulp.task('kodein-sass', function() {
     return gulp.src([
         'lib/kodein-sass/kodein/**/*'
     ])
     .pipe(gulp.dest(path + '/sass/'))
 });
+
+// Copy env.php from wp-content to the themes folder
+gulp.task('env', function(){
+    return gulp.src('sneaky/env.php')
+    .pipe(gulp.dest(path))
+});
+
 gulp.task('default', ['sass', 'js', 'browserSync'], function() {
     gulp.watch('*.scss', {cwd: path + '/sass'}, ['sass']);
     gulp.watch('**/*.scss', {cwd: path + '/sass'}, ['sass']);

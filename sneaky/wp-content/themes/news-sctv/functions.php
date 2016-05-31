@@ -1,4 +1,5 @@
 <?php
+
 /**
  * news sctv theme functions and definitions.
  *
@@ -282,6 +283,7 @@ function videoCustom($title = 'Berikut Cuplikan') {
 	
 }
 
+// display custom excerpt with
 function custom_excerpt($charLimit) {
 
 	$excerpt = get_the_excerpt();
@@ -294,6 +296,7 @@ function custom_excerpt($charLimit) {
 	}
 }
 
+// dynamically change max post between mobile and desktop
 function max_post() {
 
 	$max_post = 0;
@@ -305,4 +308,14 @@ function max_post() {
 	}
 
 	return $max_post;
+}
+
+// Create a function to display no image easily
+function noimage() {
+
+	// add env variable
+	include('env.php');
+
+	
+	echo '<img class="img-responsive" src="'. $env_config['site_url'] .'/wp-content/uploads/2016/05/noimage.png" alt="no image">';
 }

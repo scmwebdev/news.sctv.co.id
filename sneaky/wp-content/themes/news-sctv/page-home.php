@@ -37,13 +37,7 @@
 				if ( $query->have_posts() ) {
 					while ( $query->have_posts() ) {
 						$query->the_post();
-
-						if (is_mobile()) {
-							get_template_part('template-parts/content', 'post');
-						} else {
 							get_template_part('template-parts/frontpage', 'latest');
-						}
-						
 					}
 				} else {
 					// no posts found
@@ -57,9 +51,9 @@
 			</div>
 		</div>
 	</header><!-- /header -->
-	<content class="clearfix">
+	<section class="clearfix" id="site-page-content">
 		<div class="container">
-			<div class="segment col-sm-9">
+			<div class="segment leftCol col-sm-9">
 				<div class="segment-wrap row clearfix" id="top-stories">
 					<div class="spacemar-20">
 						<h2 class="title">Top Stories</h2>
@@ -101,11 +95,11 @@
 				?>
 				</div>
 			</div>
-			<div class="segment col-sm-3">
+			<div class="segment rightCol col-sm-3">
 				Banner Ads
 			</div>
 		</div>
-	</content>
+	</section>
 </div>
 
 <?php get_footer(); ?>

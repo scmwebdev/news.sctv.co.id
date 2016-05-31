@@ -68,9 +68,18 @@ gulp.task('js', function() {
 
 // copy font awesome fonts from node_modules to the themes folder
 gulp.task('fonts', function() {
-    return gulp.src(['node_modules/font-awesome/fonts/**/*']) 
+    return gulp.src([
+        'node_modules/font-awesome/fonts/**/*'
+    ]) 
     .pipe(gulp.dest('sneaky/wp-content/themes/fonts/'))
 });
+
+gulp.task('slick', function(){
+    return gulp.src([
+        'node_modules/slick-carousel/slick/fonts/*'
+    ])
+    .pipe(gulp.dest('./fonts/'))
+})
 
 // Copy kodein sass mixin and partial to the themes sass folder
 gulp.task('kodein-sass', function() {

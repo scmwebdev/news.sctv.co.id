@@ -56,6 +56,12 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 // @import "normalize";
 
 /*--------------------------------------------------------------
+# Font Awesome
+--------------------------------------------------------------*/
+@import "../../../../../node_modules/font-awesome/scss/font-awesome.scss";
+
+
+/*--------------------------------------------------------------
 # Typography
 --------------------------------------------------------------*/
 @import "typography/typography";
@@ -120,9 +126,10 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 @import "../../../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
 /*--------------------------------------------------------------
-# Font Awesome
+# Slick Carousel
 --------------------------------------------------------------*/
-@import "../../../../../node_modules/font-awesome/scss/font-awesome.scss";
+@import "../../../../../node_modules/slick-carousel/slick/slick.scss";
+@import "../../../../../node_modules/slick-carousel/slick/slick-theme.scss";
 
 .gallery {
 	@extend .clearfix;

@@ -33,6 +33,13 @@
 				<div class="text-right">
 					Tautan Luar <i class="fa fa-chevron-down"></i>	
 				</div>
+				<div class="site-info-extra-content">
+					<ul class="nodots">
+						<li>target</li>
+						<li>target</li>
+						<li>target</li>
+					</ul>
+				</div>
 				
 			</div>
 		</div><!-- .site-info -->

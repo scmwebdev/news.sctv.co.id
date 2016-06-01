@@ -48,6 +48,28 @@ footer.site-footer {
             &:hover {
                 cursor: pointer;
             }
+            &.active {
+            	.site-info-extra-content {
+            		display: block;
+            	}
+            }
+
+            &-content {
+            	display: none;
+            	background-color: #fff;
+            	position: absolute;
+            	top: -100px;
+            	right: 1em;
+            	border-radius: 8%;
+
+            	li {
+            		padding: 1em 3em;
+            		border-bottom: 1px solid $color__sitebg;
+            		&:last-child {
+            			border-bottom: none;
+            		}
+            	}
+            }
         }
     }
 }

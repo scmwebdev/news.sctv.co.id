@@ -46,22 +46,26 @@ footer.site-footer {
             @include spacepad($pad);
             text-transform: uppercase;
             position: relative;
+            @include transition(.2s);
             &:hover {
                 cursor: pointer;
             }
             &.active {
                 .site-info-extra-content {
-                    display: block;
+                    top: -12em;
+                    @include opacity(1);
+                    
                 }
             }
             &-content {
-                display: none;
+            	@include transition(.2s);
+            	@include opacity(0);
                 background-color: #fff;
                 position: absolute;
-                top: -12em;
+                top: -20em;
                 right: 1em;
                 border-radius: 8%;
-                @extend .shadow.curved-vertical;
+                
                 &:after {
                     @include triangle(down, 10px, #fff);
                     z-index: 2;
@@ -70,14 +74,13 @@ footer.site-footer {
                 li {
                     padding: 1em 3em;
                     border-bottom: 1px solid $color__sitebg;
-
                     &:first-child {
-                    	border-top-left-radius: $radius;
-                    	border-top-right-radius: $radius;
+                        border-top-left-radius: $radius;
+                        border-top-right-radius: $radius;
                     }
                     &:last-child {
-                    	border-bottom-left-radius: $radius;
-                    	border-bottom-right-radius: $radius;
+                        border-bottom-left-radius: $radius;
+                        border-bottom-right-radius: $radius;
                     }
                     &:hover {
                         background-color: $color__highlight;

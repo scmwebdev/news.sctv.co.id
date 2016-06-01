@@ -1,0 +1,53 @@
+/*  Footer */
+
+$pad: 2em;
+footer.site-footer {
+    background-color: #fff;
+    .site-info {
+        > div {
+            font-size: 80%;
+            border-left: 1px solid #ccc;
+            min-height: 65px;
+            color: $color__copyright;
+        }
+        &-copyright {
+            @include spacepad($pad);
+        }
+        &-live {
+            @include spacepad($pad);
+            text-transform: uppercase;
+            text-align: center;
+            &:hover {
+                background-color: $color__highlight;
+                cursor: pointer;
+                color: #fff;
+            }
+        }
+        &-social {
+            @include spacepad(1.5em);
+            > div {
+                background-image: url(http://www.sctv.co.id/assets/img/sprite.png);
+                background-position: 0 -1311px;
+                width: 32px;
+                height: 29px;
+                margin: 0 auto;
+            }
+            &:hover {
+                background-color: $color__highlight;
+                cursor: pointer;
+                color: #fff;
+                > div {
+                    background-position: 0 -1252px;
+                }
+            }
+        }
+        &-extra {
+            @include spacepad($pad);
+            text-transform: uppercase;
+            position: relative;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+}

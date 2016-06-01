@@ -13563,9 +13563,10 @@ return jQuery;
     	console.log('To Zanarkand');
     	menuBar();
 
-    	$('#top-stories .slicky').slick({
+    	$('.slicky').slick({
     		arrows: true
     	});
+
     });
     
 })(jQuery);

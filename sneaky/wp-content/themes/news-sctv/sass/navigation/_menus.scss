@@ -3,6 +3,7 @@
     // display: block;
     // float: left;
     // width: 100%;
+
     ul {
         // display: none;
         list-style: none;
@@ -104,9 +105,11 @@
 
 #masthead {
     border-bottom: 1px solid #ccc;
+    @include box-shadow(0px, -85px, 0px, 0px, #000);
 }
 
 .site-menu {
+
     .box {
         float: left;
         a {

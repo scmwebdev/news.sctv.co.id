@@ -2,8 +2,13 @@
 
 $pad: 2em;
 $radius: 10px;
+footer {
+    @include box-shadow(0px, 5px, 15px, 0px, #000);
+}
+
 footer.site-footer {
     background-color: #fff;
+    border-top: 1px solid #ccc;
     .site-info {
         > div {
             font-size: 80%;
@@ -47,25 +52,27 @@ footer.site-footer {
             text-transform: uppercase;
             position: relative;
             @include transition(.2s);
-            &:hover {
-                cursor: pointer;
+            > div {
+                display: inline;
+                float: right;
+                &:hover {
+                    cursor: pointer;
+                }
             }
             &.active {
                 .site-info-extra-content {
                     top: -12em;
                     @include opacity(1);
-                    
                 }
             }
             &-content {
-            	@include transition(.2s);
-            	@include opacity(0);
+                @include transition(.2s);
+                @include opacity(0);
                 background-color: #fff;
                 position: absolute;
                 top: -20em;
                 right: 1em;
                 border-radius: 8%;
-                
                 &:after {
                     @include triangle(down, 10px, #fff);
                     z-index: 2;

@@ -15,7 +15,7 @@
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
 		<div class="site-info clearfix">
-			<div class="site-info-copyright col-xs-6">
+			<div class="site-info-copyright col-xs-12 col-sm-6">
 				<span>
 					<i class="fa fa-copyright" aria-hidden="true"></i>
 					COPYRIGHT 2015 SCTV. ALL RIGHTS RESERVED.

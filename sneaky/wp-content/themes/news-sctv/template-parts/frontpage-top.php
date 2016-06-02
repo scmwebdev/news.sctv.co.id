@@ -10,8 +10,10 @@
 	<?php } ?>
 	<div class="item-list-desc col-xs-12 col-sm-7">
 		<div class="item-list-desc-title">
-			<?php the_title(); ?>
-			<div class="item-list-desc-date"><?php echo get_the_date(); ?></div>
+			<a href="<?php the_permalink() ?>">
+				<?php the_title(); ?>
+				<div class="item-list-desc-date"><?php echo get_the_date(); ?></div>
+			</a>
 		</div>
 		<div class="item-list-desc-text">
 			<?php 

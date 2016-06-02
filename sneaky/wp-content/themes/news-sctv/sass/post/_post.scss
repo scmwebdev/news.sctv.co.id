@@ -80,6 +80,16 @@
 
 $title_size: 1em;
 .item-list-desc {
+    a {
+        text-decoration: none !important;
+        &:visited, & {
+            color: #000 ;
+        }
+        &:hover,
+        &:focus {
+            color: $color__highlight;
+        }
+    }
     &-title {
         text-transform: uppercase;
         font-weight: 700;

@@ -25,7 +25,7 @@
         makeToggle('.site-info-extra > div', '.site-info-extra', 'active');
 
         $('.slicky').slick({
-            arrows: true
+            // arrows: true
         });
 
 

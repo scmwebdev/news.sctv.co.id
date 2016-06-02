@@ -7,6 +7,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var concat = require('gulp-concat');
 var browserSync = require('browser-sync');
 var uglify = require('gulp-uglify');
+var merge = require('merge-stream');
 var reload = browserSync.reload;
 
 /* path to wp custom theme */
@@ -65,29 +66,27 @@ gulp.task('js', function() {
         .pipe(reload({ stream: true }));
 });
 
+// Create a list utility task and merge them
+gulp.task('utility', function(){
 
-// copy font awesome fonts from node_modules to the themes folder
-gulp.task('fonts', function() {
-    return gulp.src([
-        'node_modules/font-awesome/fonts/**/*'
-    ]) 
-    .pipe(gulp.dest('sneaky/wp-content/themes/fonts/'))
-});
+    // move slick fonts to the fonts under custom themes folder
+    var slick_fonts = gulp.src('node_modules/slick-carousel/slick/fonts/*')
+        .pipe(gulp.dest( path + '/fonts'));
 
-gulp.task('slick', function(){
-    return gulp.src([
-        'node_modules/slick-carousel/slick/fonts/*'
-    ])
-    .pipe(gulp.dest('./fonts/'))
+    // move ajax loader to custom themes folder
+    var ajax_loader = gulp.src('node_modules/slick-carousel/slick/ajax-loader.gif')
+        .pipe(gulp.dest(path));
+
+    // move slick fonts to the sass folder under custom themes folder
+    var kodein_sass = gulp.src('lib/kodein-sass/kodein/**/*')
+        .pipe(gulp.dest(path + '/sass'));
+
+    // move font_awesome fonts to themes root folder
+    var font_awesome = gulp.src('node_modules/font-awesome/fonts/**/*')
+        .pipe(gulp.dest('sneaky/wp-content/themes/fonts/'))
+        
+    return merge(slick_fonts, ajax_loader, kodein_sass, font_awesome);
 })
-
-// Copy kodein sass mixin and partial to the themes sass folder
-gulp.task('kodein-sass', function() {
-    return gulp.src([
-        'lib/kodein-sass/kodein/**/*'
-    ])
-    .pipe(gulp.dest(path + '/sass/'))
-});
 
 // Copy env.php from wp-content to the themes folder
 gulp.task('env', function(){

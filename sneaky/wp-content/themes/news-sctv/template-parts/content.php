@@ -49,7 +49,49 @@
 			</div><!-- .entry-content -->
 		</div>
 		<div class="article-rightCol col-xs-12 col-sm-4">
-			<?php related_posts(); ?>
+			<div class="article-section clearfix" id="related-content">
+				<h3 class="title">Related Article</h3>
+				<?php related_posts(); ?>
+			</div>
+			<div class="article-section clearfix" id="most-popular">
+				<h3 class="title">Most Popular</h3>
+				<?php
+						$max_post = max_post(4, 6);
+						$args = array (
+							'post_status'            => array( 'publish' ),
+							// 'order'                  => 'ASC',
+							'post_type' 			 => 'post',
+							'posts_per_page' 		 => $max_post,
+							'meta_query'             => array(
+									array(
+										'key'       => 'wpb_post_views_count',
+										'value'     => '3',
+										'compare'   => '>',
+										'orderby' 	=> 'meta_value_num', 
+										'order' 	=> 'ASC'
+									),
+								),
+							);
+
+						// The Query
+						$query = new WP_Query( $args );
+
+						// The Loop
+						if ( $query->have_posts() ) {
+							while ( $query->have_posts() ) {
+								$query->the_post();
+								
+								get_template_part('template-parts/frontpage', 'popular');
+							}
+						} else {
+							// no posts found
+							echo 'no posts found';
+						}
+
+						// Restore original Post Data
+						wp_reset_postdata();
+					?>
+			</div>
 		</div>
 	</div>
 </article><!-- #post-## -->

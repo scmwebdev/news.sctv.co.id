@@ -1,3 +1,8 @@
+<?php 
+	$views = wpb_get_post_views(get_the_ID());
+	$date = get_the_date();
+?>
+
 <div class="item-list clearfix spacepad-15">
 	<?php if(has_post_thumbnail()) { ?>
 		<div class="item-list-thumb col-xs-12 col-sm-5">
@@ -12,8 +17,10 @@
 		<div class="item-list-desc-title">
 			<a href="<?php the_permalink() ?>">
 				<?php the_title(); ?>
-				<div class="item-list-desc-date"><?php echo get_the_date(); ?></div>
 			</a>
+		</div>
+		<div class="item-list-desc-stats clearfix">
+			<div class="item-list-desc-date pull-left"><?php echo $date; ?></div>
 		</div>
 		<div class="item-list-desc-text">
 			<?php 

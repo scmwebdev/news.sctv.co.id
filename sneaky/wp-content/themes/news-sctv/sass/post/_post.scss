@@ -1,3 +1,18 @@
+.item-list-link {
+    a {
+        text-decoration: none !important;
+        &:visited,
+        & {
+            color: #000;
+        }
+        &:hover,
+        &:focus {
+            color: $color__highlight;
+        }
+    }
+}
+
+
 /** Article Posts **/
 
 .article {
@@ -80,16 +95,7 @@
 
 $title_size: 1em;
 .item-list-desc {
-    a {
-        text-decoration: none !important;
-        &:visited, & {
-            color: #000 ;
-        }
-        &:hover,
-        &:focus {
-            color: $color__highlight;
-        }
-    }
+    @extend .item-list-link;
     &-title {
         text-transform: uppercase;
         font-weight: 700;
@@ -98,7 +104,7 @@ $title_size: 1em;
     &-date {
         font-weight: 500;
         color: $color__highlight;
-        padding-top: 0.5em;
+        // padding-top: 0.5em;
     }
     &-text {
         @include spacepad(1em);
@@ -149,7 +155,7 @@ $title_size: 1em;
 
 /* Top Stories */
 
-.item-post {
+#top-stories {
     .frontpage & {
         .item-list-thumb {
             padding-bottom: 1em;
@@ -160,11 +166,31 @@ $title_size: 1em;
                     font-size: $title_size + 0.5em;
                 }
                 &-date {
-                    font-size: $title_size - 0.3em;
+                    // font-size: $title_size - 0.3em;
                 }
             }
             &-button {
                 float: right;
+            }
+        }
+    }
+}
+
+
+/* Most Popular */
+
+#most-popular {
+    .frontpage & {
+        .wpp-stats {
+            text-align: right;
+            color: $color__secondary;
+            > span {
+                @include spacepad-side(2px);
+            }
+        }
+        .item-list-desc {
+            &-title {
+                @extend .item-list-link;
             }
         }
     }

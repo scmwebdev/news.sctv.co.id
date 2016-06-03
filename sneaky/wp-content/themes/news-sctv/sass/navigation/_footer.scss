@@ -22,6 +22,7 @@ footer.site-footer {
         &-live {
             @include spacepad($pad);
             text-align: center;
+            text-transform: uppercase;
             &:hover {
                 background-color: $color__highlight;
                 cursor: pointer;

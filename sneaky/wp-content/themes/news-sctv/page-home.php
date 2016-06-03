@@ -97,6 +97,7 @@
 				</div>
 			</div>
 			<div class="segment col-sm-3 <?php echo (is_mobile()) ? 'no-spacepad-side' : ' '; ?>" id="most-popular">
+				
 				<div class="segment-wrap clearfix item-post" >
 					<div class="<?php echo (is_mobile()) ? '' : 'spacemar-20'; ?>">
 						<h2 class="title">Most Popular</h2>
@@ -106,17 +107,19 @@
 						$max_post = max_post(4, 6);
 						$args = array (
 							'post_status'            => array( 'publish' ),
-							'order'                  => 'DESC',
+							// 'order'                  => 'ASC',
 							'post_type' 			 => 'post',
 							'posts_per_page' 		 => $max_post,
-							'meta_query' => array(
-								array(
-									'key'       => 'top_stories',
-									'value'     => 'yes',
-									'compare'   => '=',
+							'meta_query'             => array(
+									array(
+										'key'       => 'wpb_post_views_count',
+										'value'     => '3',
+										'compare'   => '>',
+										'orderby' 	=> 'meta_value_num', 
+										'order' 	=> 'ASC'
+									),
 								),
-							),
-						);
+							);
 
 						// The Query
 						$query = new WP_Query( $args );
@@ -125,6 +128,7 @@
 						if ( $query->have_posts() ) {
 							while ( $query->have_posts() ) {
 								$query->the_post();
+								
 								get_template_part('template-parts/frontpage', 'popular');
 							}
 						} else {
@@ -134,13 +138,12 @@
 
 						// Restore original Post Data
 						wp_reset_postdata();
-
 					?>
 					</div>
-				</div>
+				</div> 
 			</div>
 			<div class="segment col-sm-3">
-				Banner Ads
+				<!-- Banner Ads -->
 			</div>
 		</div>
 	</section>

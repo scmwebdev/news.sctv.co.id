@@ -199,6 +199,25 @@ function the_slug($echo=true){
 }
 
 /* ==================================================================
+ * Retrieve current url
+ * ================================================================== */
+
+function current_page_url() {
+  $pageURL = 'http';
+  if( isset($_SERVER["HTTPS"]) ) {
+    if ($_SERVER["HTTPS"] == "on") {$pageURL .= "s";}
+  }
+  $pageURL .= "://";
+  if ($_SERVER["SERVER_PORT"] != "80") {
+    $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"];
+  } else {
+    $pageURL .= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
+  }
+  return $pageURL;
+}
+
+
+/* ==================================================================
  * Custom Pagination
  * ================================================================== */
 
@@ -342,4 +361,44 @@ function noimage() {
 
 	
 	echo '<img class="img-responsive center-block" src="'. $env_config['site_url'] .'/wp-content/uploads/2016/05/noimage.png" alt="no image">';
+}
+
+/* ==================================================================
+ * Custom Most Popular Script
+ * ================================================================== */
+
+function wpb_set_post_views($postID) {
+    $count_key = 'wpb_post_views_count';
+    $count = get_post_meta($postID, $count_key, true);
+    if($count==''){
+        $count = 0;
+        delete_post_meta($postID, $count_key);
+        add_post_meta($postID, $count_key, '0');
+    }else{
+        $count++;
+        update_post_meta($postID, $count_key, $count);
+    }
+}
+//To keep the count accurate, lets get rid of prefetching
+remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
+
+function wpb_track_post_views ($post_id) {
+    if ( !is_single() ) return;
+    if ( empty ( $post_id) ) {
+        global $post;
+        $post_id = $post->ID;    
+    }
+    wpb_set_post_views($post_id);
+}
+add_action( 'wp_head', 'wpb_track_post_views');
+
+function wpb_get_post_views($postID){
+    $count_key = 'wpb_post_views_count';
+    $count = get_post_meta($postID, $count_key, true);
+    if($count==''){
+        delete_post_meta($postID, $count_key);
+        add_post_meta($postID, $count_key, '0');
+        return "0 View";
+    }
+    return $count.' Views';
 }

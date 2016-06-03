@@ -62,12 +62,6 @@
     }
 }
 
-.article-rightCol {
-    .yarpp-related {
-        @extend .no-spacemar;
-    }
-}
-
 .article-video {
     > iframe.vidio-embed {
         max-height: 24em;
@@ -78,15 +72,31 @@
     }
 }
 
-.related {
-    > li {
-        border-bottom: 1px solid #ddd;
-        padding: 1em 0;
-    }
-    &-title {
-        font-size: 85%;
+
+/* -- Article Right Column (article-rightCol) -- */
+
+#related-content {
+    .article-rightCol & {
+        .yarpp-related {
+            @extend .no-spacemar;
+            @extend .clearfix;
+        }
+        ul {
+            @extend .nodots;
+            @extend .clearfix;
+            > li {
+                border-bottom: 1px solid #ddd;
+                padding: 1em 0;
+            }
+            .related-title {
+                // font-size: 85%;
+                font-weight: 700;
+            }
+        }
     }
 }
+
+/* -- /end -- */
 
 
 /* 

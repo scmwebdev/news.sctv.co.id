@@ -358,9 +358,7 @@ function noimage() {
 
 	// add env variable
 	include('env.php');
-
-	
-	echo '<img class="img-responsive center-block" src="'. $env_config['site_url'] .'/wp-content/uploads/2016/05/noimage.png" alt="no image">';
+	echo '<img class="img-responsive center-block no-image" src="'. $env_config['site_url'] .'/wp-content/uploads/2016/05/noimage.png" alt="no image">';
 }
 
 // Fetch category and outputs it

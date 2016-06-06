@@ -21,6 +21,7 @@
     "gulp-sourcemaps": "^1.6.0",
     "gulp-uglify": "^1.5.3",
     "jquery": "^2.2.4",
+    "jquery-match-height": "^0.7.0",
     "lodash": "^4.13.1",
     "merge-stream": "^1.0.0",
     "slick-carousel": "^1.6.0"

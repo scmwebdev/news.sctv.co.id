@@ -96,12 +96,23 @@
     }
 }
 
+
 /* -- /end -- */
 
 
 /* 
  * Post Styling *
  */
+
+.item-list {
+    &-thumb {
+        min-height: 240px;
+        overflow: hidden;
+    }
+    &-desc {
+        min-height: calc(100% - 20em);
+    }
+}
 
 $title_size: 1em;
 .item-list-desc {
@@ -125,6 +136,7 @@ $title_size: 1em;
 .entry-meta {
     font-style: italic;
 }
+
 .item-viewed {
     color: $color__highlight;
 }
@@ -212,4 +224,8 @@ $title_size: 1em;
             }
         }
     }
+}
+
+.no-image {
+    max-width: 200px !important;
 }

@@ -28,6 +28,7 @@
             // arrows: true
         });
 
+        $('.item-list.list-page').matchHeight();
 
     });
 

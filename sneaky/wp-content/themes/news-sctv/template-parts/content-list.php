@@ -1,4 +1,4 @@
-<div class="item-list list-page <?php fetch_category('item-latest'); ?>col-xs-12 col-sm-4">
+<div class="item-list list-page <?php fetch_category('item-latest'); ?> col-xs-12 col-sm-4">
 	<a href="<?php echo get_permalink(); ?>">
 	
 		<?php
@@ -11,7 +11,7 @@
 				echo '</div>';
 
 		?>
-	
+	</a>
 	<div class="item-list-desc">
 		<div class="item-list-desc-title ">
 			<?php the_title(); ?>

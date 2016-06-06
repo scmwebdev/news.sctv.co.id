@@ -12,7 +12,9 @@ get_header(); ?>
 
 	<div id="primary" class="content-area site-page-content">
 		<main id="main" class="site-main" role="main">
-
+		<div class="container-fluid spacepad-15">
+			
+		
 		<?php
 			$args = array (
 				'post_status'            => array( 'publish' ),
@@ -39,6 +41,7 @@ get_header(); ?>
 			wp_reset_postdata();
 
 		?>
+		</div>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 

@@ -163,7 +163,7 @@ add_image_size( 'mainBanner_lg_2', 1000, 600, true);
 add_image_size( 'mainBanner_md', 992, 400, true);
 add_image_size( 'mainBanner_xs', 600, 600, true);
 add_image_size( 'video_thumb', 400, 250, hard);
-add_image_size( 'article_thumb', 250, false);
+add_image_size( 'article_thumb', 250, 250, hard);
 add_image_size( 'logo', 200, 200, hard);
 
 /* ==================================================================

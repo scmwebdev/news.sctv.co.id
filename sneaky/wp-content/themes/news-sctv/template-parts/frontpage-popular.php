@@ -1,12 +1,8 @@
 <?php 
 	$views = wpb_get_post_views(get_the_ID());
 	$date = get_the_date();
-
-	// grab category
-	$cat = get_the_category();
-	echo $cat[0]->name;
 ?>
-<div class="item-list clearfix spacepad-15">
+<div class="item-list <?php fetch_category('item-popular'); ?> clearfix spacepad-15">
 	
 		<div class="item-list-desc col-xs-12">
 			<div class="item-list-desc-title clearfix">
@@ -16,7 +12,7 @@
 			</div>
 			<div class="item-list-desc-stats clearfix">
 				<span class="item-list-desc-date"><?php echo $date?></span>
-				<span class="item-list-desc-views"><!-- - <?php echo $views?> --></span>
+				<span class="item-list-desc-views item-viewed"><!-- - <?php echo $views?> --></span>
 			</div>
 		
 			<?php 

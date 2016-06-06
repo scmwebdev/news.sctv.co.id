@@ -14,7 +14,8 @@
     background-color: $color__sitebg;
 }
 
-#site-page-content {
+#site-page-content,
+.site-page-content {
     position: relative;
     left: 0;
     @include transition(.2s);

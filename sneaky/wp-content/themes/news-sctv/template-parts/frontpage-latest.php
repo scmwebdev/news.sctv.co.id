@@ -1,4 +1,4 @@
-<div class="item-list col-xs-12">
+<div class="item-list <?php fetch_category('item-latest'); ?>col-xs-12">
 	<a href="<?php echo get_permalink(); ?>">
 	
 		<?php

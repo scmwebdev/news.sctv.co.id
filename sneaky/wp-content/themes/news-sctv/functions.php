@@ -363,6 +363,18 @@ function noimage() {
 	echo '<img class="img-responsive center-block" src="'. $env_config['site_url'] .'/wp-content/uploads/2016/05/noimage.png" alt="no image">';
 }
 
+// Fetch category and outputs it
+function fetch_category($classPrefix) {
+	$categories = get_the_category();
+	foreach ($categories as $cat ) {
+		$category = strtolower($cat->name);
+		//spacing at the end is required
+		$output = $classPrefix . '-' . $category . ' ';
+		echo $output;
+	}
+	
+};
+
 /* ==================================================================
  * Custom Most Popular Script
  * ================================================================== */

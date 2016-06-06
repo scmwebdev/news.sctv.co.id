@@ -3,7 +3,7 @@
 	$date = get_the_date();
 ?>
 
-<div class="item-list clearfix spacepad-15">
+<div class="item-list <?php fetch_category('item-top'); ?> clearfix spacepad-15">
 	<?php if(has_post_thumbnail()) { ?>
 		<div class="item-list-thumb col-xs-12 col-sm-5">
 			<a href="<?php the_permalink() ?>">

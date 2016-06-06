@@ -23,6 +23,8 @@
 				if ( 'post' === get_post_type() ) : ?>
 				<div class="entry-meta">
 					<?php news_sctv_posted_on(); ?>
+					<span class="item-viewed"> - <?php echo wpb_get_post_views(get_the_ID()); ?></span>
+					
 					<hr>
 				</div><!-- .entry-meta -->
 			<?php

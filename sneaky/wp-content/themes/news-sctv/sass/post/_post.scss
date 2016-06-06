@@ -121,6 +121,14 @@ $title_size: 1em;
     }
 }
 
+// views on each article post
+.entry-meta {
+    font-style: italic;
+}
+.item-viewed {
+    color: $color__highlight;
+}
+
 
 /* Latest News */
 

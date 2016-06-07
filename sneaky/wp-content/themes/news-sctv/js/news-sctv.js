@@ -26,7 +26,7 @@
             infinite: infinite,
             draggable: false,
             autoplay: true,
-            autoplaySpeed: 2000,
+            autoplaySpeed: 4000,
             responsive: [{
                 breakpoint: 992,
                 settings: {
@@ -44,6 +44,7 @@
                 settings: {
                     slidesToShow: 1,
                     slidesToScroll: 1,
+                    arrows: false
                 }
             }]
         });

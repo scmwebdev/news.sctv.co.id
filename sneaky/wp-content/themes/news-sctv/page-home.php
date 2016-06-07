@@ -35,9 +35,12 @@
 					    <div class="<?php echo (is_mobile()) ? '' : 'spacemar-20'; ?>">
 					        <h2 class="title">Breaking News</h2>
 					    </div>
-					    <div class="slicky">
-					    	<?php breaking_news(); ?>
+					    <div class="slicky-container">
+							<div class="slicky">
+						    	<?php breaking_news(); ?>
+						    </div>
 					    </div>
+
 					</div>
 					<?php }//endif ?>
 	        	</div>

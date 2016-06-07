@@ -142,3 +142,24 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 	@extend .col-xs-4;
 	@extend .col-sm-3;
 }
+
+/* override slick carousel theme */
+
+// add space on the container
+.slicky-container {
+	@include spacepad-side(1.5em);
+}
+
+// styling for the slick arrows
+.slick-next:before {
+	color: $color__secondary;
+	font-size: 30px;
+	top: 45%;
+	left: -35px;
+}
+.slick-prev:before {
+	color: $color__secondary;
+	font-size: 30px;
+	top: 45%;
+}
+

@@ -412,3 +412,103 @@ function wpb_get_post_views($postID){
     }
     return $count.' Views';
 }
+
+/* ==================================================================
+ * Breaking News Script
+ * ================================================================== */
+
+function breaking_news() {
+	$get_tag = get_field('breaking_news');
+	$args = array (
+		'post_status'            => array( 'publish' ),
+		'order'                  => 'DESC',
+		'post_type' 			 => 'post',
+		'tag_id'			     => $get_tag
+	);
+
+	$query = new WP_Query( $args );
+	
+	// The Loop
+	if ($query->have_posts()) {
+	    while ($query->have_posts()) {
+	        $query->the_post();
+	        get_template_part('template-parts/frontpage', 'breakingnews');
+	    }
+	} else {
+	    // no posts found
+	    echo 'no posts found';
+	}
+
+	// Restore original Post Data
+	wp_reset_postdata();
+
+}
+
+function latest_news($template, $minPost, $maxPost) {
+
+	// set the min and max of posts and store it in a var
+	$post_per_page = max_post($minPost, $maxPost);
+
+	$args = array (
+		'post_status'            => array( 'publish' ),
+		'order'                  => 'DESC',
+		'post_type' 			 => 'post',
+		'posts_per_page' 		 => $post_per_page,
+	);
+
+	// The Query
+	$query = new WP_Query( $args );
+
+	// The Loop
+	if ( $query->have_posts() ) {
+		while ( $query->have_posts() ) {
+			$query->the_post();
+				get_template_part('template-parts/frontpage', $template);
+		}
+	} else {
+		// no posts found
+	}
+
+	// Restore original Post Data
+	wp_reset_postdata();
+}
+function frontpage_posts($key, $keyValue, $template, $minPost, $maxPost, $order = 'DESC', $compare = '=') {
+
+	// set the min and max of posts and store it in a var
+	$post_per_page = max_post($minPost, $maxPost);
+
+	// set the filters/requirement for the query
+	$args = array (
+		'post_status'            => array( 'publish' ),
+		'order'                  => 'DESC',
+		'post_type' 			 => 'post',
+		'posts_per_page' 		 => $post_per_page,
+		'meta_query' => array(
+			array(
+				'key'       => $key,
+				'value'     => $keyValue,
+				'compare'   => $compare,
+				'order'		=> $order
+			),
+		),
+	);
+
+	// The Query
+	$query = new WP_Query( $args );
+
+	// The Loop
+	if ( $query->have_posts() ) {
+		while ( $query->have_posts() ) {
+			$query->the_post();
+			get_template_part('template-parts/frontpage', $template);
+		}
+	} else {
+		// no posts found
+		echo 'no posts found';
+	}
+
+	// Restore original Post Data
+	wp_reset_postdata();
+}
+
+

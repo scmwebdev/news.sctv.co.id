@@ -17,9 +17,13 @@
 # property set. Specify the username and a domain or IP for the server.
 # Don't use `:all`, it's a meta role.
 
-# role :app, %w{deploy@example.com}, my_property: :my_value
-# role :web, %w{user1@primary.com user2@additional.com}, other_property: :other_value
-# role :db,  %w{deploy@example.com}
+set :deploy_to, '/home/ec2-user/newssctv'
+
+role :app, %w{54.254.216.202}
+role :web, %w{54.254.216.202}
+role :db,  %w{54.254.216.202}
+
+server '54.254.216.202', user: 'ec2-user', roles: %w{web app}, my_property: :my_value
 
 
 

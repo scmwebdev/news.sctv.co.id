@@ -112,7 +112,6 @@
     }
     &-desc {
         min-height: calc(100% - 20em);
-        
     }
 }
 
@@ -228,18 +227,21 @@ $title_size: 1em;
     }
 }
 
+
 /* Breaking News */
 
 #breaking-news {
     .frontpage & {
+        .item-list-thumb {
+            padding-bottom: 1em;
+        }
         .item-list-desc {
             &-title {
-                font-size: 1em;
+                font-size: .9em;
             }
         }
     }
 }
-
 
 .no-image {
     max-width: 200px !important;

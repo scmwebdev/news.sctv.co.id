@@ -62,6 +62,7 @@
 							<?php frontpage_posts('wpb_post_views_count', 3, 'popular', 4, 6, 'ASC', '>' ); ?>
 						</div>
 					</div>
+				</div>
 	        </div>
 	        <div class="col-sm-3 rightCol">
 	            Banner Ads

@@ -16,7 +16,6 @@
     .item-list {
         @extend .no-spacepad-side;
         @include spacepad(1.1em);
-        // background-color: #F3F3F3;
         border-bottom: 1px solid #ddd;
         &:last-child {
             border-bottom: none;
@@ -24,7 +23,7 @@
         a {
             color: $color__secondary;
             &:hover {
-                color: $color__highlight__link;
+                color: $color__highlight;
             }
         }
         > div {

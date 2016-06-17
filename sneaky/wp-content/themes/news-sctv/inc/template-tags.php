@@ -26,8 +26,9 @@ function news_sctv_posted_on() {
 
 	$posted_on = sprintf(
 		esc_html_x( 'Di upload %s', 'post date', 'news-sctv' ),
-		// '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 		$time_string
+		// '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
+		
 	);
 
 	$byline = sprintf(

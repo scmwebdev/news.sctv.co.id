@@ -2,6 +2,8 @@
 
 $pad: 2em;
 $radius: 10px;
+
+// add drop shadow on the footer container
 footer {
     @include box-shadow(0px, 5px, 15px, 0px, #000);
 }

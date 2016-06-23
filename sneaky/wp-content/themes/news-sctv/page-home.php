@@ -53,6 +53,8 @@
 						<?php frontpage_posts('top_stories', 'yes', 'top', 4, 6) ?>
 					</div>
 				</div>
+
+				<!-- Most Popular -->
 				<div class="segment col-sm-4 <?php echo (is_mobile()) ? 'no-spacepad-side' : ' '; ?>" id="most-popular">
 					<div class="segment-wrap clearfix item-post" >
 						<div class="<?php echo (is_mobile()) ? '' : 'spacemar-20'; ?>">

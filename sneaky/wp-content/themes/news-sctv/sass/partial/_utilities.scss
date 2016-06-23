@@ -42,6 +42,13 @@ ul.nodots {
     position: relative;
 }
 
+.uppercase {
+    text-transform: uppercase;
+}
+
+.bold {
+    font-weight: 700;
+}
 
 /* ------------------------------------
  * Spacing - Padding and Margin
@@ -62,6 +69,14 @@ ul.nodots {
     .spacemar-#{$x} {
         margin-top: $x + px;
         margin-bottom: $x + px;
+    }
+    .spacepad-side-#{$x} {
+        padding-left: $x + px;
+        padding-right: $x + px;
+    }
+    .spacemar-side-#{$x} {
+        margin-left: $x + px;
+        margin-right: $x + px;
     }
 }
 

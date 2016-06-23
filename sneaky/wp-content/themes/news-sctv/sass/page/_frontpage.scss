@@ -49,3 +49,12 @@
         @extend .title;
     }
 }
+
+.bannerads {
+    height: 122px;
+    overflow: hidden;
+
+    img {
+        @extend .fullwidth;
+    }
+}

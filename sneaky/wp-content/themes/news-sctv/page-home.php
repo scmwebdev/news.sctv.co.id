@@ -20,7 +20,39 @@
 			</div>
 		</div>
 	</header><!-- /header -->
-	<section class="clearfix section-content">
+	<section class="clearfix section-content section-content-bannerads">
+		<div class="container-fluid no-spacepad-side">
+			<div class="segment col-xs-9 no-padding bannerads" id="long-banner-ads">
+				<?php 
+
+	        		$longBannerAds = get_field('long_banner_ads');
+	        		$longBannerAdsURL = get_field('long_banner_ads_url');
+
+	        		$html  = '<a target="_blank" href="http://www.'. $longBannerAdsURL .'">';
+	        		$html .= '<img class="img-responsive" src="'. $longBannerAds .'">';
+	        		$html .= '</a>';
+
+	        		echo $html;
+
+        		?>
+			</div>
+			<div class="segment col-xs-3 no-spacepad-side bannerads" id="small-banner-ads">
+				<?php 
+
+	        		$smallBannerAds = get_field('small_banner_ads');
+	        		$smallBannerAdsURL = get_field('small_banner_ads_url');
+
+	        		$html  = '<a target="_blank" href="http://www.'. $smallBannerAdsURL .'">';
+	        		$html .= '<img class="img-responsive" src="'. $smallBannerAds .'">';
+	        		$html .= '</a>';
+
+	        		echo $html;
+
+        		?>
+			</div>
+		</div>
+	</section>
+		<section class="clearfix section-content">
 	    <div class="container-fluid <?php echo (is_mobile()) ? 'no-spacepad-side' : ' '; ?>">
 	        <div class="col-sm-9 leftCol no-spacepad-side">
 	        	<!-- breaking news -->
@@ -61,16 +93,15 @@
 							<h2 class="title">Most Popular</h2>
 						</div>
 						<div class="<?php echo (is_mobile()) ? 'slicky' : 'no-slicky'; ?>">
-							<?php frontpage_posts('wpb_post_views_count', 3, 'popular', 4, 6, 'ASC', '>' ); ?>
+							<?php frontpage_posts('wpb_post_views_count', 1, 'popular', 3, 3, 'ASC', '>' ); ?>
 						</div>
 					</div>
 				</div>
 	        </div>
-	        <div class="col-sm-3 rightCol">
-	            Banner Ads
-	        </div>
+
 	    </div>
 	</section>
+
 </div>
 
 <?php get_footer(); ?>

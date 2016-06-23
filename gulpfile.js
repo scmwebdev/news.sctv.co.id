@@ -57,6 +57,7 @@ gulp.task('js', function() {
             './node_modules/fastclick/lib/*.js',
             './node_modules/slick-carousel/slick/slick.js',
             './node_modules/jquery-match-height/dist/jquery.matchHeight.js',
+            path + '/js/module/*',
             path + '/js/news-sctv.js',
         ])
         .pipe(concat('news-sctv.js'))

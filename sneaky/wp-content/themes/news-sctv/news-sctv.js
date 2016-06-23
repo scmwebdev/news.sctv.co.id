@@ -13934,29 +13934,15 @@ return jQuery;
 
 });
 
-(function($) {
+var pageSlicky = {
 
-    /* Description
-     * makeToggle accept 3 arguments:
-     * clickArea  => what you need to click to trigger it
-     * targetArea => the targeted DOM
-     * toggledCLass => class toggle */
+	init: function() {
+		$('.slicky').slick();
+	},
+	slicky: function(target, slidestoshow, slidestoscroll, infinite) {
 
-    function makeToggle(clickArea, targetArea, toggledClass) {
-
-        var func_num_args = arguments.length;
-
-        if (func_num_args = 3) {
-            $(clickArea).click(function() {
-                $(targetArea).toggleClass(toggledClass);
-            });
-        }
-
-
-    }
-
-    function slicky(target, slidestoshow, slidestoscroll, infinite) {
-        $(target).slick({
+		infinite = 'no' || 'yes'; //by default its no
+		$(target).slick({
             slidesToShow: slidestoshow,
             slidesToScroll: slidestoscroll,
             infinite: infinite,
@@ -13984,20 +13970,115 @@ return jQuery;
                 }
             }]
         });
-    };
+	}
 
-    $(document).ready(function() {
+};
+
+
+// function slicky(target, slidestoshow, slidestoscroll, infinite) {
+//         $(target).slick({
+//             slidesToShow: slidestoshow,
+//             slidesToScroll: slidestoscroll,
+//             infinite: infinite,
+//             draggable: false,
+//             autoplay: true,
+//             autoplaySpeed: 4000,
+//             responsive: [{
+//                 breakpoint: 992,
+//                 settings: {
+//                     slidesToShow: slidestoshow - 1,
+//                     slidesToScroll: slidestoscroll - 1,
+//                 }
+//             }, {
+//                 breakpoint: 768,
+//                 settings: {
+//                     slidesToShow: slidestoshow - 2,
+//                     slidesToScroll: slidestoscroll - 2,
+//                 }
+//             }, {
+//                 breakpoint: 480,
+//                 settings: {
+//                     slidesToShow: 1,
+//                     slidesToScroll: 1,
+//                     arrows: false
+//                 }
+//             }]
+//         });
+//     };
+var pageFooter = {
+    init: function() {
+        pageFooter.bindUIAction();
+    },
+    bindUIAction: function() {
+
+        pageFooter.UIHover();
+
+        var target = $('.site-info-extra');
+        target.click(function(event) {
+            event.stopPropagation();
+            target.toggleClass('active');
+        })
+        $(window).click(function(event) {
+            event.stopPropagation();
+            if(target.hasClass('active')) {
+                target.removeClass('active')
+            }
+        })
+    },
+    UIHover: function() {
+        var extraContent = $('.site-info-extra-content');
+        var extra = $('.site-info-extra');
+        extraContent.find('li:last-child').hover(function() {
+            extraContent.toggleClass('lastChildHovered');
+        })
+    }
+}
+
+var pageHeader = {
+    init: function(settings) {
+
+        pageHeader.config = {
+            menuTrigger: $('#site-menu-bar')
+        };
+
+        $.extend(pageHeader.config, settings);
+        pageHeader.bindUIAction();
+    },
+    bindUIAction: function() {
+        var trigger = pageHeader.config.menuTrigger;
+        trigger.click(function(event) {
+            event.stopPropagation();
+            $(this).closest('body').toggleClass('menu-active');
+        })
+    }
+}
+
+/** 
+ * News SCTV Main JS
+ */
+
+var Page = {
+
+    init: function() {
         console.log('To Zanarkand');
-        makeToggle('#site-menu-bar', 'body', 'menu-active');
-        makeToggle('.site-info-extra > div', '.site-info-extra', 'active');
-        slicky('#breaking-news .slicky', 4, 1);
-
-        $('.slicky').slick({
-            // arrows: true
+        pageHeader.init();
+        pageSlicky.init();
+        pageFooter.init();
+    },
+    matchContentHeight: function() {
+        var classes = [
+            '.item-list.list-page',
+        ];
+        $.each(classes, function(i, z) {
+            $(classes[i]).matchHeight();
         });
+    }
+};
 
-        $('.item-list.list-page').matchHeight();
+(function($) {
 
-    });
+    Page.init();
+    pageSlicky.slicky('#breaking-news .slicky', 4, 1);
+
 
 })(jQuery);

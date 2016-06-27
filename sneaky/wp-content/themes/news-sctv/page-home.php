@@ -69,6 +69,8 @@
 						<?php 
 							$article = new ArticlePost('template-parts/frontpage', 'top');
 							$article->get_post('top_stories', 'yes');
+
+							ArticlePost::test();
 						?>
 					</div>
 				</div>

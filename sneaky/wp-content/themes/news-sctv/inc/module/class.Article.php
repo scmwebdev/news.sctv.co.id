@@ -5,6 +5,12 @@
 		public $_template;
 		public $_slug;
 
+
+		/**
+		 * @param $slug => for the parent folder of the template. example: 'template-parts/content'
+		 * @param $template => for the template name. example: 'post'
+		 *
+		 */
 		public function __construct($slug, $template) {
 			
 			$this->_template = $template;
@@ -63,6 +69,12 @@
 
 		}
 
-	}
+		public static function test() {
+			echo 'static test';
+		}
+
+	};
+
+
 
 ?>

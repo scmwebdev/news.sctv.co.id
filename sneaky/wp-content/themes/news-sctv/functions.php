@@ -8,6 +8,9 @@
  * @package news_sctv_theme
  */
 
+include 'inc/module/class.Banner.php';
+include 'inc/module/class.Article.php';
+
 if ( ! function_exists( 'news_sctv_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.

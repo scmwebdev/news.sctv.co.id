@@ -36,9 +36,6 @@
     overflow: hidden;
     position: relative;
     @extend .custom-height;
-    @include breakpoint(sm) {
-        border-bottom: 1px solid #ccc;
-    }
 }
 
 .title {

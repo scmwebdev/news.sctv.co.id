@@ -21,6 +21,7 @@
 		</div>
 	</header><!-- /header -->
 	<section class="clearfix section-content section-content-bannerads">
+
 		<div class="container-fluid no-spacepad-side">
 			<div class="segment col-xs-9 no-padding bannerads" id="long-banner-ads">
 				<?php 
@@ -52,9 +53,9 @@
 			</div>
 		</div>
 	</section>
-		<section class="clearfix section-content">
+	<section class="clearfix section-content">
 	    <div class="container-fluid <?php echo (is_mobile()) ? 'no-spacepad-side' : ' '; ?>">
-	        <div class="col-sm-9 leftCol no-spacepad-side">
+	        <div class="no-spacepad-side">
 	        	<!-- breaking news -->
 	        	<div class="segment col-sm-12 <?php echo (is_mobile()) ? 'no-spacepad-side' : ' '; ?>" id="breaking-news">
 	        		<?php 
@@ -98,7 +99,6 @@
 					</div>
 				</div>
 	        </div>
-
 	    </div>
 	</section>
 

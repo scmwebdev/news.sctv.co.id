@@ -6,15 +6,14 @@
 		<div class="segment col-xs-12 col-md-9 no-padding" id="mainbanner">
 			<?php 
 
-				$get_banner = get_field('banner');
-				$banner = wp_get_attachment_image( $get_banner , 'mainbanner_lg');
-				if ($banner) { echo $banner; }
+				$featuredBanner = new Banner();
+				$featuredBanner->featured_img('mainbanner_lg');
+
 			 ?>
 		</div>
 
 		<div class="segment col-xs-12 col-md-3 template2" id="latest">
 			<h2 class="title">Latest News</h2>
-			
 			<div class="video-list">
 			<?php latest_news('latest', 4, 6); ?>
 			</div>
@@ -25,36 +24,20 @@
 		<div class="container-fluid no-spacepad-side">
 			<div class="segment col-xs-9 no-padding bannerads" id="long-banner-ads">
 				<?php 
-
-	        		$longBannerAds = get_field('long_banner_ads');
-	        		$longBannerAdsURL = get_field('long_banner_ads_url');
-
-	        		$html  = '<a target="_blank" href="http://www.'. $longBannerAdsURL .'">';
-	        		$html .= '<img class="img-responsive" src="'. $longBannerAds .'">';
-	        		$html .= '</a>';
-
-	        		echo $html;
-
+	        		$long = new Banner();
+					$long->ads('long_banner_ads');
         		?>
 			</div>
 			<div class="segment col-xs-3 no-spacepad-side bannerads" id="small-banner-ads">
 				<?php 
-
-	        		$smallBannerAds = get_field('small_banner_ads');
-	        		$smallBannerAdsURL = get_field('small_banner_ads_url');
-
-	        		$html  = '<a target="_blank" href="http://www.'. $smallBannerAdsURL .'">';
-	        		$html .= '<img class="img-responsive" src="'. $smallBannerAds .'">';
-	        		$html .= '</a>';
-
-	        		echo $html;
-
+					$small = new Banner();
+					$small->ads('small_banner_ads');
         		?>
 			</div>
 		</div>
 	</section>
 	<section class="clearfix section-content">
-	    <div class="container-fluid <?php echo (is_mobile()) ? 'no-spacepad-side' : ' '; ?>">
+	   <div class="container-fluid <?php echo (is_mobile()) ? 'no-spacepad-side' : ' '; ?>">
 	        <div class="no-spacepad-side">
 	        	<!-- breaking news -->
 	        	<div class="segment col-sm-12 <?php echo (is_mobile()) ? 'no-spacepad-side' : ' '; ?>" id="breaking-news">
@@ -83,7 +66,10 @@
 						<h2 class="title">Top Stories</h2>
 					</div>
 					<div class="<?php echo (is_mobile()) ? 'slicky' : ''; ?>">
-						<?php frontpage_posts('top_stories', 'yes', 'top', 4, 6) ?>
+						<?php 
+							$article = new ArticlePost('template-parts/frontpage', 'top');
+							$article->get_post('top_stories', 'yes');
+						?>
 					</div>
 				</div>
 

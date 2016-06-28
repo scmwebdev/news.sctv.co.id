@@ -41,30 +41,12 @@
 	<section class="clearfix section-content">
 	   <div class="container-fluid <?php echo (is_mobile()) ? 'no-spacepad-side' : ' '; ?>">
 	        <div class="no-spacepad-side">
-	        	<!-- breaking news -->
-	        	<div class="segment col-sm-12 <?php echo (is_mobile()) ? 'no-spacepad-side' : ' '; ?>" id="breaking-news">
 	        		<?php 
 						$get_tag = get_field('breaking_news');
-						// if breaking news is true..
-						if($get_tag) { 
+
+						// if breaking news exist, show it
+						($get_tag) ? ArticlePost::breaking_news() : '';
 					?>
-
-					<div class="segment-wrap clearfix item-post">
-					    <div class="<?php echo (is_mobile()) ? '' : 'spacemar-20'; ?>">
-					        <h2 class="title">Breaking News</h2>
-					    </div>
-					    <div class="slicky-container">
-							<div class="slicky">
-						    	<?php 
-						    		// breaking_news(); 
-						    		ArticlePost::breaking_news();
-						    	?>
-						    </div>
-					    </div>
-
-					</div>
-					<?php }//endif ?>
-	        	</div>
 	        	<!-- Top Stories -->
 	        	<div class="segment col-sm-8 <?php echo (is_mobile()) ? 'no-spacepad-side' : ' '; ?>" id="top-stories">
 		        	<div class="<?php echo (is_mobile()) ? '' : 'spacemar-20'; ?>">

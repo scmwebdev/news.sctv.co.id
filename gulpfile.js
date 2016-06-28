@@ -24,6 +24,7 @@ gulp.task('browserSync', function() {
         path + '/inc/*.php',
         path + '/inc/**/*.php',
         path + '/js/*.js',
+        path + '/js/**/*.js',
         path + '/layouts/*.css',
         path + '/sass/*.scss',
         path + '/sass/**/*.scss',
@@ -101,4 +102,5 @@ gulp.task('default', ['sass', 'js', 'browserSync'], function() {
     gulp.watch('*.scss', {cwd: path + '/sass'}, ['sass']);
     gulp.watch('**/*.scss', {cwd: path + '/sass'}, ['sass']);
     gulp.watch('*.js', {cwd: path + '/js'}, ['js']);
+    gulp.watch('**/*.js', {cwd: path + '/js'}, ['js']);
 });

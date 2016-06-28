@@ -98,6 +98,18 @@
 		public static function breaking_news() {
 
 			$get_tag = get_field('breaking_news');
+			$spacing = (is_mobile()) ? '' : 'spacemar-20';
+			$spacing2 = (is_mobile()) ? 'no-spacepad-side' : '';
+
+			$header  = '<div class="segment col-sm-12 '. $spacing2 .'" id="breaking-news">';
+			$header .= '<div class="segment-wrap clearfix item-post">';
+			$header .= '<div class="'. $spacing .'">';
+			$header .= '<h2 class="title">Breaking News</h2>';
+			$header .= '</div>'; //spacing
+			$header .= '<div class="slicky-container">';
+			$header .= '<div class="slicky">';
+
+			echo $header;
 
 			$args = array (
 				'post_status'            => array( 'publish' ),
@@ -121,6 +133,13 @@
 
 			// Restore original Post Data
 			wp_reset_postdata();
+
+			$footer = '</div>'; //endof slicky
+			$footer = '</div>'; //endof slicky-container
+			$footer = '</div>'; //endof segment-wrap;
+			$footer = '</div>'; //endof segment
+
+			echo $footer;
 		}
 
 	}

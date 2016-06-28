@@ -13934,15 +13934,13 @@ return jQuery;
 
 });
 
-var pageSlicky = {
+var SlickCarousel = function() {};
 
-	init: function() {
-		$('.slicky').slick();
-	},
-	slicky: function(target, slidestoshow, slidestoscroll, infinite) {
+$.extend(SlickCarousel.prototype, {
 
-		infinite = 'no' || 'yes'; //by default its no
-		$(target).slick({
+    slicky: function(target, slidestoshow, slidestoscroll, infinite) {
+        infinite = 'no' || 'yes'; //by default its no
+        $(target).slick({
             slidesToShow: slidestoshow,
             slidesToScroll: slidestoscroll,
             infinite: infinite,
@@ -13970,9 +13968,9 @@ var pageSlicky = {
                 }
             }]
         });
-	}
+    }
 
-};
+});
 var pageFooter = {
     init: function() {
         pageFooter.bindUIAction();
@@ -14021,6 +14019,21 @@ var pageHeader = {
     }
 }
 
+
+/**
+ * create Inheritance Helper
+ */
+function inherit(base, methods) {  
+    var sub = function() {
+        base.apply(this, arguments); // Call base class constructor
+
+        // Call sub class initialize method that will act like a constructor
+        this.initialize.apply(this, arguments);
+    };
+    sub.prototype = Object.create(base.prototype);
+    $.extend(sub.prototype, methods);
+    return sub;
+}
 /** 
  * News SCTV Main JS
  */
@@ -14030,7 +14043,7 @@ var Page = {
     init: function() {
         console.log('To Zanarkand');
         pageHeader.init();
-        pageSlicky.init();
+        // pageSlicky.init();
         pageFooter.init();
     },
     matchContentHeight: function() {
@@ -14046,7 +14059,8 @@ var Page = {
 (function($) {
 
     Page.init();
-    pageSlicky.slicky('#breaking-news .slicky', 4, 1);
 
+    var breaking_news = new SlickCarousel();
+    breaking_news.slicky('#breaking-news .slicky', 4, 1);
 
 })(jQuery);

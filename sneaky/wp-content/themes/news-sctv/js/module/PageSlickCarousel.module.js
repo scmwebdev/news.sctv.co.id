@@ -1,12 +1,10 @@
-var pageSlicky = {
+var SlickCarousel = function() {};
 
-	init: function() {
-		$('.slicky').slick();
-	},
-	slicky: function(target, slidestoshow, slidestoscroll, infinite) {
+$.extend(SlickCarousel.prototype, {
 
-		infinite = 'no' || 'yes'; //by default its no
-		$(target).slick({
+    slicky: function(target, slidestoshow, slidestoscroll, infinite) {
+        infinite = 'no' || 'yes'; //by default its no
+        $(target).slick({
             slidesToShow: slidestoshow,
             slidesToScroll: slidestoscroll,
             infinite: infinite,
@@ -34,6 +32,6 @@ var pageSlicky = {
                 }
             }]
         });
-	}
+    }
 
-};
+});

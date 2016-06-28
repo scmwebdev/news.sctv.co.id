@@ -7,7 +7,7 @@ var Page = {
     init: function() {
         console.log('To Zanarkand');
         pageHeader.init();
-        pageSlicky.init();
+        // pageSlicky.init();
         pageFooter.init();
     },
     matchContentHeight: function() {
@@ -23,7 +23,8 @@ var Page = {
 (function($) {
 
     Page.init();
-    pageSlicky.slicky('#breaking-news .slicky', 4, 1);
 
+    var breaking_news = new SlickCarousel();
+    breaking_news.slicky('#breaking-news .slicky', 4, 1);
 
 })(jQuery);

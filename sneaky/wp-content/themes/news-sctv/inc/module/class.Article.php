@@ -69,11 +69,61 @@
 
 		}
 
-		public static function test() {
-			echo 'static test';
+		public static function latest_news() {
+
+			$args = array (
+				'post_status'            => array( 'publish' ),
+				'order'                  => 'DESC',
+				'post_type' 			 => 'post',
+				'posts_per_page' 		 => $post_per_page,
+			);
+
+			// The Query
+			$query = new WP_Query( $args );
+
+			// The Loop
+			if ( $query->have_posts() ) {
+				while ( $query->have_posts() ) {
+					$query->the_post();
+						get_template_part('template-parts/frontpage', 'latest');
+				}
+			} else {
+				echo 'no posts found!';
+			}
+
+			// Restore original Post Data
+			wp_reset_postdata();
 		}
 
-	};
+		public static function breaking_news() {
+
+			$get_tag = get_field('breaking_news');
+
+			$args = array (
+				'post_status'            => array( 'publish' ),
+				'order'                  => 'DESC',
+				'post_type' 			 => 'post',
+				'tag_id'			     => $get_tag
+			);
+
+			// The Query
+			$query = new WP_Query( $args );
+
+			// The Loop
+			if ( $query->have_posts() ) {
+				while ( $query->have_posts() ) {
+					$query->the_post();
+						get_template_part('template-parts/frontpage', 'breakingnews');
+				}
+			} else {
+				echo 'no posts found!';
+			}
+
+			// Restore original Post Data
+			wp_reset_postdata();
+		}
+
+	}
 
 
 

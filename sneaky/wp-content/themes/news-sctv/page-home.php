@@ -15,7 +15,9 @@
 		<div class="segment col-xs-12 col-md-3 template2" id="latest">
 			<h2 class="title">Latest News</h2>
 			<div class="video-list">
-			<?php latest_news('latest', 4, 6); ?>
+			<?php 
+				ArticlePost::latest_news();
+			?>
 			</div>
 		</div>
 	</header><!-- /header -->
@@ -53,7 +55,10 @@
 					    </div>
 					    <div class="slicky-container">
 							<div class="slicky">
-						    	<?php breaking_news(); ?>
+						    	<?php 
+						    		// breaking_news(); 
+						    		ArticlePost::breaking_news();
+						    	?>
 						    </div>
 					    </div>
 
@@ -68,9 +73,7 @@
 					<div class="<?php echo (is_mobile()) ? 'slicky' : ''; ?>">
 						<?php 
 							$article = new ArticlePost('template-parts/frontpage', 'top');
-							$article->get_post('top_stories', 'yes');
-
-							ArticlePost::test();
+							$article->get_post('top_stories', 'yes');			
 						?>
 					</div>
 				</div>

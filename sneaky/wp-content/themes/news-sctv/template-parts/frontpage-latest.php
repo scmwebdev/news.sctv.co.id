@@ -1,4 +1,4 @@
-<div class="item-list <?php fetch_category('item-latest'); ?>col-xs-12">
+<div class="item-list item-latest <?php fetch_category('item-latest'); ?>col-xs-12" data-id="<?php echo get_the_ID() ?>">
 	<a href="<?php echo get_permalink(); ?>">
 	
 		<?php

@@ -38,9 +38,9 @@ gulp.task('browserSync', function() {
 });
 
 gulp.task('sass', function() {
-    return gulp.src( path + '/sass/style.scss')
+    return gulp.src(path + '/sass/style.scss')
         .pipe(plumber({
-            errorHandler: function (err) {
+            errorHandler: function(err) {
                 console.log(err);
                 this.emit('end');
             }
@@ -49,7 +49,7 @@ gulp.task('sass', function() {
         .pipe(sass({ outputStyle: 'compressed' }))
         .pipe(autoprefixer())
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest(path)) 
+        .pipe(gulp.dest(path))
         .pipe(reload({ stream: true }));
 });
 
@@ -62,6 +62,12 @@ gulp.task('js', function() {
             path + '/js/module/*',
             path + '/js/news-sctv.js',
         ])
+        .pipe(plumber({
+            errorHandler: function(err) {
+                console.log(err);
+                this.emit('end');
+            }
+        }))
         .pipe(concat('news-sctv.js'))
         .pipe(gulp.dest(path))
         .pipe(uglify())
@@ -71,11 +77,11 @@ gulp.task('js', function() {
 });
 
 // Create a list utility task and merge them
-gulp.task('utility', function(){
+gulp.task('utility', function() {
 
     // move slick fonts to the fonts under custom themes folder
     var slick_fonts = gulp.src('node_modules/slick-carousel/slick/fonts/*')
-        .pipe(gulp.dest( path + '/fonts'));
+        .pipe(gulp.dest(path + '/fonts'));
 
     // move ajax loader to custom themes folder
     var ajax_loader = gulp.src('node_modules/slick-carousel/slick/ajax-loader.gif')
@@ -88,19 +94,19 @@ gulp.task('utility', function(){
     // move font_awesome fonts to themes root folder
     var font_awesome = gulp.src('node_modules/font-awesome/fonts/**/*')
         .pipe(gulp.dest('sneaky/wp-content/themes/fonts/'))
-        
+
     return merge(slick_fonts, ajax_loader, kodein_sass, font_awesome);
 })
 
 // Copy env.php from wp-content to the themes folder
-gulp.task('env', function(){
+gulp.task('env', function() {
     return gulp.src('sneaky/env.php')
-    .pipe(gulp.dest(path))
+        .pipe(gulp.dest(path))
 });
 
 gulp.task('default', ['sass', 'js', 'browserSync'], function() {
-    gulp.watch('*.scss', {cwd: path + '/sass'}, ['sass']);
-    gulp.watch('**/*.scss', {cwd: path + '/sass'}, ['sass']);
-    gulp.watch('*.js', {cwd: path + '/js'}, ['js']);
-    gulp.watch('**/*.js', {cwd: path + '/js'}, ['js']);
+    gulp.watch('*.scss', { cwd: path + '/sass' }, ['sass']);
+    gulp.watch('**/*.scss', { cwd: path + '/sass' }, ['sass']);
+    gulp.watch('*.js', { cwd: path + '/js' }, ['js']);
+    gulp.watch('**/*.js', { cwd: path + '/js' }, ['js']);
 });

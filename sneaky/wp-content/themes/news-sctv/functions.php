@@ -417,35 +417,8 @@ function wpb_get_post_views($postID){
 }
 
 /* ==================================================================
- * Breaking News Script
+ * Frontpage Posts
  * ================================================================== */
-
-// function breaking_news() {
-// 	$get_tag = get_field('breaking_news');
-// 	$args = array (
-// 		'post_status'            => array( 'publish' ),
-// 		'order'                  => 'DESC',
-// 		'post_type' 			 => 'post',
-// 		'tag_id'			     => $get_tag
-// 	);
-
-// 	$query = new WP_Query( $args );
-	
-// 	// The Loop
-// 	if ($query->have_posts()) {
-// 	    while ($query->have_posts()) {
-// 	        $query->the_post();
-// 	        get_template_part('template-parts/frontpage', 'breakingnews');
-// 	    }
-// 	} else {
-// 	    // no posts found
-// 	    echo 'no posts found';
-// 	}
-
-// 	// Restore original Post Data
-// 	wp_reset_postdata();
-
-// }
 
 function frontpage_posts($key, $keyValue, $template, $minPost, $maxPost, $order = 'DESC', $compare = '=') {
 
@@ -484,6 +457,67 @@ function frontpage_posts($key, $keyValue, $template, $minPost, $maxPost, $order 
 
 	// Restore original Post Data
 	wp_reset_postdata();
+}
+
+/* ==================================================================
+ * Frontpage Main Banner
+ * this function fetch the latest article and display it as main banner
+ * ================================================================== */
+
+function get_mainbanner() {
+
+	$args = array (
+		'post_status'            => array( 'publish' ),
+		'order'                  => 'DESC',
+		'post_type' 			 => 'post',
+		'posts_per_page' 		 => 4,
+	);
+
+	// The Query
+	$mainBanner = new WP_Query( $args );
+
+	// The Loop
+	if ( $mainBanner->have_posts() ) {
+		echo '<div class="segment col-xs-12 col-md-9 no-padding" id="mainbanner">';
+		while ( $mainBanner->have_posts() ) {
+			$mainBanner->the_post();
+				get_template_part('template-parts/frontpage', 'mainbanner');
+		}
+		echo '</div>';
+	} else {
+		echo 'no posts found!';
+	}
+
+	// Restore original Post Data
+	wp_reset_postdata();
+
+	/**
+	 * get latest post details w/o the main banner (using frontpage-latest template)
+	 */
+
+	// The Query
+	$latest = new WP_Query( $args );
+
+	// The Loop
+	if ( $latest->have_posts() ) {
+
+		echo '<div class="segment col-xs-12 col-md-3 template2" id="latest">';
+		echo '<h2 class="title">Latest News</h2>';
+		echo '<div class="video-list">';
+
+		while ( $latest->have_posts() ) {
+			$latest->the_post();
+				get_template_part('template-parts/frontpage', 'latest');
+		}
+		echo '</div>';
+		echo '</div>';
+	} else {
+		echo 'no posts found!';
+	}
+
+	// Restore original Post Data
+	wp_reset_postdata();
+
 }
 
 

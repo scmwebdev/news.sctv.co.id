@@ -2,16 +2,39 @@
 
 <div class="frontpage" id="site-page-content">
 	<header id="site-page-header">
+	<div class="segment col-xs-12 col-md-9 no-padding" id="mainbanner">
+			<?php 
 
-		<?php get_mainbanner(); ?>
+				$featuredBanner = new Banner();
+				$featuredBanner->featured_img('mainbanner_lg');
 
+			 ?>
+		</div>
+
+		<div class="segment col-xs-12 col-md-3 template2" id="latest">
+			<h2 class="title">Latest News</h2>
+			<div class="video-list">
+			<?php 
+				ArticlePost::latest_news();
+			?>
+			</div>
+		</div>
 	</header><!-- /header -->
 	<section class="clearfix section-content section-content-bannerads">
+
 		<div class="container-fluid no-spacepad-side">
-			<?php 
-				Banner::long_bannerads();
-				Banner::small_bannerads(); 
-			?>
+			<div class="segment col-xs-9 no-padding bannerads" id="long-banner-ads">
+				<?php 
+	        		$long = new Banner();
+					$long->ads('long_banner_ads');
+        		?>
+			</div>
+			<div class="segment col-xs-3 no-spacepad-side bannerads" id="small-banner-ads">
+				<?php 
+					$small = new Banner();
+					$small->ads('small_banner_ads');
+        		?>
+			</div>
 		</div>
 	</section>
 	<section class="clearfix section-content">

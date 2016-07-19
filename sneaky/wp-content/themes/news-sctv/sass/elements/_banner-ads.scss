@@ -1,0 +1,20 @@
+/**
+ * Banner Ads
+ */
+
+.banner-ads {
+    max-height: 250px;
+    overflow: hidden;
+    img {
+        // @extend .fullwidth;
+    }
+}
+
+.frontpage-banner-ads {
+
+}
+
+#long-banner-ads {
+	width: 700px;
+	height: 300px;
+}

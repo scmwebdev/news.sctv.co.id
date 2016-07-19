@@ -40,9 +40,12 @@
     		echo $html;
 		}
 
+		/**
+		 * Grab the long banner ads
+		 */
 		public static function long_bannerads() {
 
-			echo '<div class="segment col-xs-9 no-padding bannerads" id="long-banner-ads">';
+			echo '<div class="segment col-xs-9" id="long-banner-ads">';
 
 			$long = new Banner();
 			$long->ad_type('long_banner_ads');
@@ -51,9 +54,12 @@
 
 		}
 
+		/**
+		 * Grab the small banner ads
+		 */
 		public static function small_bannerads() {
 
-			echo '<div class="segment col-xs-3 no-spacepad-side bannerads" id="small-banner-ads">';
+			echo '<div class="segment col-xs-3" id="small-banner-ads">';
 			$small = new Banner();
 			$small->ad_type('small_banner_ads');
 

@@ -20,7 +20,10 @@ var Page = {
     }
 };
 
-(function($) {
+(function($) { 
+
+    //remove 300ms delay on mobile
+    FastClick.attach(document.body);
 
     Page.init();
     

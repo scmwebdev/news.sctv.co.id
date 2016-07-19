@@ -20,15 +20,24 @@ function inherit(base, methods) {
 var interface = (function() {
 
     var el = $('.trigger');
-    
+    var latestContainer = $('#latest');
+
+    function initialize() {
+
+        latestContainer.addClass('active');
+        activateUI();
+
+    }
+
     function activateUI() {
 
     	el.on('click', function(){
+            $(this).parent().toggleClass('active'); //add class activate to this parents 
     		$(this).find('.trigger-icon').toggleClass('active'); //use the class trigger-icon as our trigger to set the active class to
     	});
 
     }
 
-    $(document).ready(activateUI());
+    $(document).ready(initialize());
 
 }());

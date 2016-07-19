@@ -6,14 +6,6 @@
 		<?php get_mainbanner(); ?>
 
 	</header><!-- /header -->
-	<section class="clearfix section-content section-content-bannerads">
-		<div class="container-fluid no-spacepad-side">
-			<?php 
-				Banner::long_bannerads();
-				Banner::small_bannerads(); 
-			?>
-		</div>
-	</section>
 	<section class="clearfix section-content">
 	   <div class="container-fluid <?php echo (is_mobile()) ? 'no-spacepad-side' : ' '; ?>">
 	        <div class="no-spacepad-side">
@@ -49,6 +41,14 @@
 				</div>
 	        </div>
 	    </div>
+		<section class="clearfix section-content banner-ads frontpage-banner-ads">
+			<div class="container-fluid">
+				<?php 
+					$long = new Banner();
+					$long->ad_type('long_banner_ads');
+				?>
+			</div>
+		</section>
 	</section>
 
 </div>

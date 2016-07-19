@@ -470,7 +470,7 @@ function get_mainbanner() {
 		'post_status'            => array( 'publish' ),
 		'order'                  => 'DESC',
 		'post_type' 			 => 'post',
-		'posts_per_page' 		 => 4,
+		'posts_per_page' 		 => 6,
 	);
 
 	// The Query
@@ -501,9 +501,9 @@ function get_mainbanner() {
 	// The Loop
 	if ( $latest->have_posts() ) {
 
-		$header  = '<div class="segment col-xs-12 col-md-3 template2 " id="latest">';
-		$header .= '<h2 class="title clearfix trigger"><span class="float-left">Latest News</span><i class="float-right fa fa-chevron-up visible-xs trigger-icon " data-icon="rotate">&nbsp;</i></h2>';
-		$header .= '<div class="video-list">';
+		$header  = '<div class="segment col-xs-12 col-md-3 template2 '. (is_mobile()? 'mobile' : 'desktop').'" id="latest">';
+		$header .= '<h2 class="title clearfix trigger"><span class="float-left">Latest News</span><i class="float-right fa fa-chevron-up visible-xs trigger-icon" data-icon="rotate">&nbsp;</i></h2>';
+		$header .= '<div class="video-list trigger-content clearfix">';
 		
 		echo $header;
 

@@ -1,11 +1,31 @@
+/* ==================================================================
+ * Main Banner Section
+ * ================================================================== */
+
+ /**
+ * styling for main banner
+ * the image will have a full width, max height of 600px(beyond that height will be hidden)
+ * and by default it will be hidden until the its corresponding .item-banner class has .active class
+ */
 #mainbanner {
     overflow: hidden;
+    .item-banner {
+        display: none;
+        img {
+            // max-width: 1200px;
+            max-height: 600px;
+            @extend .fullwidth;
+        }
+        &.active {
+            display: block;
+        }
+    }
 }
 
-
-/** LATEST POST ON THE FRONTPAGE - TEMPLATE 2 (side) **/
-
-#latest.template2 {
+/**
+ * latest section styling
+ */
+#latest {
     @extend .no-padding;
     .title {
         margin: 0;
@@ -44,20 +64,23 @@
     }
 }
 
-#mainbanner {
-    overflow: hidden;
-    .item-banner {
+/**
+ * by default the latest contaienr on mobile will have an active class
+ * which will display the content.
+ *
+ * .trigger-content is used to pinpoint our content container
+ */
+#latest.mobile {
+    .trigger-content {
         display: none;
-        img {
-            // max-width: 1200px;
-            max-height: 600px;
-            @extend .fullwidth;
-        }
-        &.active {
+    }
+    &.active {
+        .trigger-content {
             display: block;
         }
     }
 }
+
 
 #most-popular .segment-wrap > div {
     h2 {
@@ -65,11 +88,4 @@
     }
 }
 
-// styling for the banner ads
-.bannerads {
-    height: 122px;
-    overflow: hidden;
-    img {
-        @extend .fullwidth;
-    }
-}
+

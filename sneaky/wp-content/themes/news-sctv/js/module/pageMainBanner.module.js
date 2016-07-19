@@ -8,7 +8,6 @@ var MainBanner = (function() {
     var firstChild = container.find('.item-banner:first');
 
     function initialize() {
-        console.log('initialize mainbanner');
         $(firstChild).addClass('active');
         displayBanner();
     }

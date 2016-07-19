@@ -14019,6 +14019,32 @@ var pageHeader = {
     }
 }
 
+var MainBanner = (function() {
+
+    var latest = $('.item-list.item-latest');
+    var container = $('#mainbanner');
+
+    function initialize() {
+        displayBanner();
+    }
+
+    function displayBanner() {
+
+        latest.on('click', function(event) {
+
+            event.preventDefault();
+            var $id = $(this).attr('data-id');
+
+            var selectBanner = $('.item-banner[data-id="' + $id + '"]');
+            $(selectBanner).addClass('active').siblings().removeClass('active');
+
+        });
+
+    }
+
+    $(document).ready(initialize());
+
+}());
 
 /**
  * create Inheritance Helper
@@ -14059,8 +14085,9 @@ var Page = {
 (function($) {
 
     Page.init();
-
+    
     var breaking_news = new SlickCarousel();
     breaking_news.slicky('#breaking-news .slicky', 4, 1);
+
 
 })(jQuery);

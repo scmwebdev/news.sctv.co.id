@@ -23,8 +23,9 @@ var Page = {
 (function($) {
 
     Page.init();
-
+    
     var breaking_news = new SlickCarousel();
     breaking_news.slicky('#breaking-news .slicky', 4, 1);
+
 
 })(jQuery);

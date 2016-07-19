@@ -5,3 +5,7 @@ node_modules/
 
 # ignore raw data/
 kitchen/
+
+# ignore sublime project files
+*.sublime-project
+*.sublime-workspace

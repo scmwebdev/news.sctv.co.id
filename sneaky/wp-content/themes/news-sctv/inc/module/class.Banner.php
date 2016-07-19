@@ -28,7 +28,7 @@
  		 * $long->ads('long_banner_ads');
  		 *
 		 */
-		public function ads($banner_type) {
+		public function ad_type($banner_type) {
 
 			$bannerads = get_field($banner_type);
 			$banneradsURL = get_field($banner_type . '_url');
@@ -39,6 +39,27 @@
 
     		echo $html;
 		}
+
+		public static function long_bannerads() {
+
+			echo '<div class="segment col-xs-9 no-padding bannerads" id="long-banner-ads">';
+
+			$long = new Banner();
+			$long->ad_type('long_banner_ads');
+
+			echo '</div>';
+
+		}
+
+		public static function small_bannerads() {
+
+			echo '<div class="segment col-xs-3 no-spacepad-side bannerads" id="small-banner-ads">';
+			$small = new Banner();
+			$small->ad_type('small_banner_ads');
+
+			echo '</div>';
+		}
+
 
 	};
 

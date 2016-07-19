@@ -44,16 +44,31 @@
     }
 }
 
+#mainbanner {
+    overflow: hidden;
+    .item-banner {
+        display: none;
+        img {
+            // max-width: 1200px;
+            max-height: 600px;
+            @extend .fullwidth;
+        }
+        &.active {
+            display: block;
+        }
+    }
+}
+
 #most-popular .segment-wrap > div {
     h2 {
         @extend .title;
     }
 }
 
+// styling for the banner ads
 .bannerads {
     height: 122px;
     overflow: hidden;
-
     img {
         @extend .fullwidth;
     }

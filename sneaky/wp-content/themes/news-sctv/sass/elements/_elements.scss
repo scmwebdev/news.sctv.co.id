@@ -36,3 +36,23 @@ img {
 }
 
 @import "tables";
+
+/** Custom Element **/
+
+/** 
+ .trigger => is used as generic class and placed on the parent container as opposed to the actualy dom that we want to manipulate 
+ .trigger-icon => is used as to name our icon that we're manipulating with. This class is used in the js files as well. this class is the one that gets activated;
+ [data-icon="attr"] => is used to differentiate the animation between one icon to another when the .trigger-icon is activated.
+*/
+
+.trigger-icon[data-icon="rotate"] {
+
+    @include transition(.2s);
+
+    &:active,
+    &:focus,
+    &.active {
+        transform: rotate(180deg);
+    }
+
+}

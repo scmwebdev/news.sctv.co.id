@@ -14019,12 +14019,18 @@ var pageHeader = {
     }
 }
 
+/**
+ * ModelView for Main Banner
+ */
 var MainBanner = (function() {
 
     var latest = $('.item-list.item-latest');
     var container = $('#mainbanner');
+    var firstChild = container.find('.item-banner:first');
 
     function initialize() {
+        console.log('initialize mainbanner');
+        $(firstChild).addClass('active');
         displayBanner();
     }
 
@@ -14060,6 +14066,25 @@ function inherit(base, methods) {
     $.extend(sub.prototype, methods);
     return sub;
 }
+
+/**
+ * ModelView for UI/UX
+ */
+var interface = (function() {
+
+    var el = $('.trigger');
+    
+    function activateUI() {
+
+    	el.on('click', function(){
+    		$(this).find('.trigger-icon').toggleClass('active'); //use the class trigger-icon as our trigger to set the active class to
+    	});
+
+    }
+
+    $(document).ready(activateUI());
+
+}());
 /** 
  * News SCTV Main JS
  */

@@ -1,9 +1,15 @@
+/**
+ * ModelView for Main Banner
+ */
 var MainBanner = (function() {
 
     var latest = $('.item-list.item-latest');
     var container = $('#mainbanner');
+    var firstChild = container.find('.item-banner:first');
 
     function initialize() {
+        console.log('initialize mainbanner');
+        $(firstChild).addClass('active');
         displayBanner();
     }
 

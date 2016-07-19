@@ -161,8 +161,8 @@ require get_template_directory() . '/inc/jetpack.php';
  * Additional Image Sizes
  * ================================================================== */
 
-add_image_size( 'mainBanner_lg', 1920, 600, true);
-add_image_size( 'mainBanner_md', 992, 400, true);
+add_image_size( 'mainBanner_lg', 1200, 600, true);
+// add_image_size( 'mainBanner_md', 992, 400, true);
 add_image_size( 'mainBanner_xs', 600, 600, true);
 add_image_size( 'video_thumb', 400, 250, hard);
 add_image_size( 'article_thumb', 250, 250, hard);
@@ -501,9 +501,11 @@ function get_mainbanner() {
 	// The Loop
 	if ( $latest->have_posts() ) {
 
-		echo '<div class="segment col-xs-12 col-md-3 template2" id="latest">';
-		echo '<h2 class="title">Latest News</h2>';
-		echo '<div class="video-list">';
+		$header  = '<div class="segment col-xs-12 col-md-3 template2 " id="latest">';
+		$header .= '<h2 class="title clearfix trigger"><span class="float-left">Latest News</span><i class="float-right fa fa-chevron-up visible-xs trigger-icon " data-icon="rotate">&nbsp;</i></h2>';
+		$header .= '<div class="video-list">';
+		
+		echo $header;
 
 		while ( $latest->have_posts() ) {
 			$latest->the_post();

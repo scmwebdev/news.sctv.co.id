@@ -32,7 +32,7 @@ gulp.task('browserSync', function() {
     ];
 
     browserSync.init(files, {
-        proxy: "http://localhost:8888/news.sctv.co.id/",
+        proxy: "http://localhost/news.sctv.co.id/",
         notify: 'false'
     });
 });

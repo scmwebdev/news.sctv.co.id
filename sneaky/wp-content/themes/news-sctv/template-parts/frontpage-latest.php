@@ -5,7 +5,11 @@
 			if(is_mobile()) {
 				echo '<div class="item-list-thumb col-xs-4">';
 				if (has_post_thumbnail()) {
-					the_post_thumbnail('article_thumb'); 
+
+					echo '<a href="'. get_the_permalink() .'">';
+					the_post_thumbnail('article_thumb');
+					echo '</a>';
+
 				} else {
 					noimage();
 				}
